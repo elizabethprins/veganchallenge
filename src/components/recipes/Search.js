@@ -52,7 +52,7 @@ class Search extends PureComponent {
 
         <div className="booleans">
 
-        </div>  
+        </div>
 
       </div>
     )
