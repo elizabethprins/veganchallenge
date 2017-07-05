@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 import LikeButton from '../../components/LikeButton'
 import toggleLike from '../../actions/recipes/toggleLike'
 
-import './RecipeItem.css'
+import './RecipePage.css'
 import { Link } from 'react-router'
 
 const PLACEHOLDER = 'http://www.jennybeaumont.com/wp-content/uploads/2015/03/placeholder.gif'
