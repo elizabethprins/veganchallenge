@@ -7,6 +7,7 @@ import MenuItem from 'material-ui/MenuItem';
 import { RadioButtonGroup, RadioButton } from 'material-ui/RadioButton'
 import searchRecipes from '../../actions/recipes/fetch'
 import updateQuery from '../../actions/recipes/search'
+import SearchIcon from 'material-ui/svg-icons/action/search'
 
 class Search extends PureComponent {
   static propTypes = {
@@ -52,7 +53,7 @@ class Search extends PureComponent {
             type="search"
             onChange={this.textSearch}
             onKeyDown={this.textSearch}
-            hintText="Zoek recepten"
+            hintText={< SearchIcon />}
             fullWidth={false} />
         </div> </div>
 

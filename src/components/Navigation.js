@@ -13,6 +13,7 @@ import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
 import Search from './recipes/Search.js'
 
+
 class Navigation extends PureComponent {
   static propTypes = {
     signedIn: PropTypes.bool,
