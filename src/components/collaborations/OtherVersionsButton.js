@@ -7,10 +7,9 @@ class OtherVersionsButton extends PureComponent {
 
   render() {
     const { recipeId } = this.props.params
-    console.log(recipeId)
 
     return (
-      <div className="CreateRecipeButton">
+      <div className="OtherVersionsButton">
         <Link to={`/recepten/${recipeId}/andere-versies`}>
           <RaisedButton
             label="Klik hier om meerdere versies van dit recept te zien"
