@@ -1,7 +1,7 @@
 // src/components/LikeButton.js
 import React, { PureComponent } from 'react'
-import HeartGrey from '../images/heart_empty.svg'
-import HeartRed from '../images/heart_full.svg'
+import HeartGrey from '../images/paprika.svg'
+import HeartRed from '../images/paprika_full.svg'
 import './LikeButton.css'
 
 class LikeButton extends PureComponent {
