@@ -41,10 +41,6 @@ export class SignUp extends PureComponent {
     return false
   }
 
-  signIn() {
-    this.props.push('/sign-in')
-  }
-
   validateAll() {
     return this.validateName() &&
       this.validateEmail() &&
@@ -133,7 +129,7 @@ export class SignUp extends PureComponent {
   render() {
     return (
       <Paper style={ dialogStyle }>
-        <Title content="Sign Up" level={2} />
+        <Title content="Registreren" level={2} />
 
         <form onSubmit={this.submitForm.bind(this)}>
           <div className="input">
@@ -157,13 +153,10 @@ export class SignUp extends PureComponent {
               onChange={this.validatePasswordConfirmation.bind(this)}
               errorText={ this.state.passwordConfirmationError} />
           </div>
-          <FlatButton
-            onClick={ this.signIn.bind(this) }
-            label="Sign in" />
           <RaisedButton
             style={ buttonStyle }
             onClick={ this.submitForm.bind(this) }
-            label="Sign up"
+            label="Registreren"
             primary={true} />
         </form>
       </Paper>

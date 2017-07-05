@@ -18,7 +18,11 @@ class Navigation extends PureComponent {
   }
 
   signUp = () => {
-    this.props.push('/sign-up')
+    this.props.push('/registreren')
+  }
+
+  signIn = () => {
+    this.props.push('/inloggen')
   }
 
   goHome = () => {
@@ -32,8 +36,9 @@ class Navigation extends PureComponent {
         title="Vegan Recepten"
         iconElementLeft={<IconButton onClick={this.goHome}><img className="heart" alt="liked" src={ HeartRed } /></IconButton>}
         iconElementRight={signedIn ?
-          <FlatButton label="Sign out" onClick={signOut} /> :
-          <FlatButton label="Sign up" onClick={this.signUp} />
+          <FlatButton label="Uitloggen" onClick={signOut} /> :
+          <div><FlatButton label="Registreren" onClick={this.signUp} />
+          <FlatButton label="Inloggen" onClick={this.signIn} /></div>
         }
       />
     )

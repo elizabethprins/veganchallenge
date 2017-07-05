@@ -42,6 +42,8 @@ class Search extends PureComponent {
     values: [],
   };
 
+
+
   render() {
     const { type } = this.props.searchQuery
     const { values } = this.state
@@ -52,7 +54,7 @@ class Search extends PureComponent {
             type="search"
             onChange={this.textSearch}
             onKeyDown={this.textSearch}
-            hintText="Zoek voor recepten"
+            hintText="Recepten zoeken"
             fullWidth={true} />
         </div>
 
