@@ -5,10 +5,10 @@ import { connect } from 'react-redux'
 import LikeButton from '../../components/LikeButton'
 import toggleLike from '../../actions/recipes/toggleLike'
 
-import './RecipePage.css'
+import './RecipeItem.css'
 import { Link } from 'react-router'
 
-const PLACEHOLDER = 'http://www.jennybeaumont.com/wp-content/uploads/2015/03/placeholder.gif'
+const PLACEHOLDER = 'http://via.placeholder.com/500x180?text=No%20Image'
 
 export class RecipeItem extends PureComponent {
   static propTypes = {
