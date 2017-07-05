@@ -4,6 +4,7 @@ import loadError from './loadError'
 import recipes from './recipes'
 import currentUser from './currentUser'
 import searchQuery from './searchQuery'
+import currentRecipe from './currentRecipe'
 
 export default {
   loading,
@@ -11,4 +12,5 @@ export default {
   recipes,
   currentUser,
   searchQuery,
+  currentRecipe
 }

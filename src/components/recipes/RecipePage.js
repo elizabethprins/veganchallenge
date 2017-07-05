@@ -3,9 +3,10 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import ReactMarkdown from 'react-markdown'
 import './RecipeItem.css'
-import fetchRecipes from '../../actions/recipes/fetch'
+import getCurrentRecipe from '../../actions/recipes/get'
 import Title from '../Title'
 import OtherVersionsButton from '../collaborations/OtherVersionsButton'
+
 
 export class RecipePage extends PureComponent {
   static propTypes = {
@@ -22,7 +23,9 @@ export class RecipePage extends PureComponent {
   }
 
   componentWillMount() {
-    this.props.fetchRecipes()
+    const { recipe, getCurrentRecipe } = this.props
+    const { recipeId } = this.props.params
+    getCurrentRecipe(recipeId)
   }
 
   toggleLike() {
@@ -50,7 +53,7 @@ export class RecipePage extends PureComponent {
 
     if (!_id) return null
 
-    console.log(this.props)
+    console.log(this.props.params)
 
     return(
       <article className="recipe page">
@@ -62,7 +65,7 @@ export class RecipePage extends PureComponent {
           <p className="author">By: { author.name }</p>
         </header>
 
-        <OtherVersionsButton />
+        <OtherVersionsButton params={this.props.params} />
 
         <main>
           <div className="description">
@@ -98,4 +101,4 @@ const mapStateToProps = ({ recipes }, { params }) => {
   }
 }
 
-export default connect(mapStateToProps, { fetchRecipes })(RecipePage)
+export default connect(mapStateToProps, { getCurrentRecipe })(RecipePage)
