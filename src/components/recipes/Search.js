@@ -54,7 +54,8 @@ class Search extends PureComponent {
             onChange={this.textSearch}
             onKeyDown={this.textSearch}
             hintText={< SearchIcon />}
-            fullWidth={false} />
+            fullWidth={false}
+            />
         </div> </div>
 
         // <div className="DropDowns">

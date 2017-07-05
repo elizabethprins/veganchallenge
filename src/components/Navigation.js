@@ -31,9 +31,14 @@ class Navigation extends PureComponent {
 
   render() {
     const { signedIn, signOut } = this.props
+
+    var customTabs = (
+            <customTabs label="Categorieen" />
+      )
+
     return (
       <AppBar
-        // title="Recipes"
+        title="Recepten"
         // iconElementLeft={<IconButton onClick={this.goHome}><LocalDining /></IconButton>}
         iconElementLeft={<Search />}
         iconElementRight={signedIn ?
