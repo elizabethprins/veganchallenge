@@ -11,7 +11,7 @@ import RecipesContainer from './components/recipes/RecipesContainer'
 import RecipePage from './components/recipes/RecipePage'
 import SignUp from './components/users/SignUp'
 import SignIn from './components/users/SignIn'
-import RecipeEditor from './recipes/RecipeEditor'
+import RecipeEditor from './components/recipes/RecipeEditor'
 import './index.css'
 
 ReactDOM.render(
