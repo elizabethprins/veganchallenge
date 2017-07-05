@@ -5,7 +5,6 @@ import ReactMarkdown from 'react-markdown'
 import './RecipeItem.css'
 import fetchRecipes from '../../actions/recipes/fetch'
 import Title from '../Title'
-import OtherVersionsButton from '../collaborations/OtherVersionsButton'
 
 export class RecipePage extends PureComponent {
   static propTypes = {
@@ -61,8 +60,6 @@ export class RecipePage extends PureComponent {
           <Title content={ title } />
           <p className="author">By: { author.name }</p>
         </header>
-
-        <OtherVersionsButton />
 
         <main>
           <div className="description">
