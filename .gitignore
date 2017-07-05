@@ -20,3 +20,6 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 src/**/*.css
+src/components/LikeButton.css src/components/LoadErrorMessage.css src/components/Title.css src/components/recipes/RecipeItem.css src/components/recipes/RecipePage.css src/components/recipes/RecipesContainer.css src/components/recipes/Search.css src/index.css src/styles/breakpoints.css src/styles/colors.css
+src/**/*.css
+src/**/**/*.css

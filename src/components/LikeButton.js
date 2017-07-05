@@ -19,12 +19,12 @@ class LikeButton extends PureComponent {
     const likesOtherThanYours = (likes || 0) - 1
 
     if (liked && likesOtherThanYours > 0) {
-      return `You and ${likesOtherThanYours} others like this`
+      return `Jij en ${likesOtherThanYours} ander${likes > 2 ? 'en' : ' persoon'} vinden dit lekker`
     }
 
-    if (liked) return 'You like this'
+    if (liked) return 'Dit vind je lekker'
 
-    if (likes > 0) return `${likes} other${likes > 1 ? 's' : ''} like${likes > 1 ? '' : 's'} this`
+    if (likes > 0) return `${likes} ander${likes > 1 ? 'en' : ' persoon'} vind${likes > 1 ? 'en' : 't'} dit lekker`
 
     return null
   }

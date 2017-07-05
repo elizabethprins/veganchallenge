@@ -8,6 +8,7 @@ import AppBar from 'material-ui/AppBar'
 import IconButton from 'material-ui/IconButton'
 import LocalDining from 'material-ui/svg-icons/maps/local-dining'
 import FlatButton from 'material-ui/FlatButton'
+import HeartRed from '../images/paprika_full.svg'
 
 class Navigation extends PureComponent {
   static propTypes = {
@@ -33,7 +34,7 @@ class Navigation extends PureComponent {
     return (
       <AppBar
         title="Vegan Recepten"
-        iconElementLeft={<IconButton onClick={this.goHome}><LocalDining /></IconButton>}
+        iconElementLeft={<IconButton onClick={this.goHome}><img className="heart" alt="liked" src={ HeartRed } /></IconButton>}
         iconElementRight={signedIn ?
           <FlatButton label="Uitloggen" onClick={signOut} /> :
           <div><FlatButton label="Registreren" onClick={this.signUp} />

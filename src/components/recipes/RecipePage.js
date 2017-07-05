@@ -2,7 +2,9 @@ import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import ReactMarkdown from 'react-markdown'
+import fetchRecipes from '../../actions/recipes/fetch'
 import getCurrentRecipe from '../../actions/recipes/get'
+
 import Title from '../Title'
 import OtherVersionsButton from '../collaborations/OtherVersionsButton'
 import CreateOtherVersionButton from '../collaborations/CreateOtherVersionButton'
@@ -10,6 +12,7 @@ import RaisedButton from 'material-ui/RaisedButton'
 import Plus from 'material-ui/svg-icons/content/add'
 import Minus from 'material-ui/svg-icons/content/remove'
 import './RecipeItem.css'
+
 
 export class RecipePage extends PureComponent {
   static propTypes = {
@@ -41,8 +44,8 @@ export class RecipePage extends PureComponent {
       _id,
       title,
       description,
-      persons,
       cookingSteps,
+      persons,
       ingredients,
       picture,
       author,
