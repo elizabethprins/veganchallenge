@@ -53,17 +53,17 @@ export class RecipePage extends PureComponent {
 
     if (!_id) return null
 
-    var people=persons
-    var items=ingredients
+    let people=persons
+    let items=ingredients
 
     function removeOnePerson() {
       people--
       if (people>0) {
         document.getElementById('persons').innerHTML = people
-        items.map((item) => {
+        items.map((item, i) => {
           var hello = people/persons * item.amount
           console.log(hello)
-          document.getElementById('ingredient').innerHTML = hello;
+          document.getElementById(`ingredient-${i}`).innerHTML = hello;
         })
       }
     }
@@ -71,10 +71,10 @@ export class RecipePage extends PureComponent {
     function addOnePerson() {
       people++
       document.getElementById('persons').innerHTML = people;
-      items.map((item) => {
+      items.map((item, i) => {
         var hello = people/persons * item.amount
         console.log(hello)
-        document.getElementById('ingredient').innerHTML = hello;
+        document.getElementById(`ingredient-${i}`).innerHTML = hello;
       })
     }
 
@@ -101,12 +101,12 @@ export class RecipePage extends PureComponent {
           </div>
 
           <div className="ingredients">
-            <p>Voor <b id="persons">{persons}</b> personen:</p>
+            <p>Voor <b id="persons">{persons}</b>{`${persons > 1 ? ' personen' : ' persoon'}`}:</p>
             <RaisedButton primary={true} icon={<Minus/>} onClick={removeOnePerson}/><RaisedButton primary={true} icon={<Plus/>} onClick={addOnePerson}/>
             <ul>
-              {ingredients.map((ingredient) => {
+              {ingredients.map((ingredient, i) => {
                 return (
-                  <p><b id="ingredient">{ingredient.amount}</b> {ingredient.measure} {ingredient.ingredient}</p>
+                  <p><b id={`ingredient-${i}`}>{ingredient.amount}</b> {ingredient.measure} {ingredient.ingredient}</p>
                 )
               })}
             </ul>
