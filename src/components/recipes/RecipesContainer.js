@@ -6,7 +6,7 @@ import RecipeItem from './RecipeItem'
 import './RecipesContainer.css'
 import fetchRecipes from '../../actions/recipes/fetch'
 import subscribeToRecipesService from '../../actions/recipes/subscribe'
-import Search from '../Search'
+import Search from './Search'
 
 export class RecipesContainer extends PureComponent {
   static propTypes = {
