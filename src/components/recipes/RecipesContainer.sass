@@ -7,39 +7,40 @@
     margin: 0 auto
     display: flex
     flex-direction: column
+    max-width: 1600px
 
     @include breakpoint($breakpoint-large)
-      max-width: 1600px
+      display: flex
       flex-flow: row wrap
 
     @include breakpoint($breakpoint-medium)
+      display: flex
       flex-flow: row wrap
 
   &> header
     display: flex
-    flex-direction: column
     margin: 0 auto
-    flex: 2 100%
+    max-width: 770px
 
     @include breakpoint($breakpoint-large)
-      max-width: 1000px
+      display: flex
+      flex-flow: row wrap
 
     @include breakpoint($breakpoint-medium)
+      display: flex
+      flex-flow: row wrap
 
   .recipes
     margin: 0 auto
     display: flex
     flex-wrap: wrap
-    flex-direction: column
+    flex-direction: row
     justify-content: center
 
     @include breakpoint($breakpoint-large)
-      max-width: 1600px
       display: flex
-
       flex-flow: row wrap
 
     @include breakpoint($breakpoint-medium)
       display: flex
-      flex-direction: row
       flex-flow: row wrap
