@@ -11,6 +11,7 @@ import RecipesContainer from './components/recipes/RecipesContainer'
 import RecipePage from './components/recipes/RecipePage'
 import SignUp from './components/users/SignUp'
 import SignIn from './components/users/SignIn'
+import RecipeEditor from './recipes/RecipeEditor'
 import './index.css'
 
 ReactDOM.render(
@@ -19,6 +20,7 @@ ReactDOM.render(
       <Route path="/" component={App}>
         <IndexRoute component={RecipesContainer} />
         <Route path="/recepten/:recipeId" component={RecipePage} />
+        <Route path="/create-recipe" component={RecipeEditor} />
         <Route path="/sign-in" component={SignIn} />
         <Route path="/sign-up" component={SignUp} />
       </Route>
