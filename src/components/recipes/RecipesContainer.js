@@ -27,7 +27,6 @@ render() {
   return(
       <div className="recipes wrapper">
         <header>
-          < Search />
         </header>
 
         <main>

@@ -8,6 +8,10 @@ import AppBar from 'material-ui/AppBar'
 import IconButton from 'material-ui/IconButton'
 import LocalDining from 'material-ui/svg-icons/maps/local-dining'
 import FlatButton from 'material-ui/FlatButton'
+import TextField from 'material-ui/TextField'
+import SelectField from 'material-ui/SelectField';
+import MenuItem from 'material-ui/MenuItem';
+import Search from './recipes/Search.js'
 
 class Navigation extends PureComponent {
   static propTypes = {
@@ -17,7 +21,7 @@ class Navigation extends PureComponent {
   }
 
   signUp = () => {
-    this.props.push('/sign-up')
+    this.props.push('/inloggen')
   }
 
   goHome = () => {
@@ -28,12 +32,12 @@ class Navigation extends PureComponent {
     const { signedIn, signOut } = this.props
     return (
       <AppBar
-        title="Recipes"
-        iconElementLeft={<IconButton onClick={this.goHome}><LocalDining /></IconButton>}
+        // title="Recipes"
+        // iconElementLeft={<IconButton onClick={this.goHome}><LocalDining /></IconButton>}
+        iconElementLeft={<Search />}
         iconElementRight={signedIn ?
           <FlatButton label="Sign out" onClick={signOut} /> :
-          <FlatButton label="Sign up" onClick={this.signUp} />
-        }
+          <FlatButton label="Sign up" onClick={this.signUp} />}
       />
     )
   }
