@@ -5,8 +5,8 @@ import TextField from 'material-ui/TextField'
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
 import { RadioButtonGroup, RadioButton } from 'material-ui/RadioButton'
-import searchRecipes from '../actions/recipes/fetch'
-import updateQuery from '../actions/recipes/search'
+import searchRecipes from '../../actions/recipes/fetch'
+import updateQuery from '../../actions/recipes/search'
 
 class Search extends PureComponent {
   static propTypes = {

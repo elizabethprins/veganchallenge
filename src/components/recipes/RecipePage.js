@@ -2,11 +2,11 @@ import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import ReactMarkdown from 'react-markdown'
-import './RecipeItem.css'
 import getCurrentRecipe from '../../actions/recipes/get'
 import Title from '../Title'
 import OtherVersionsButton from '../collaborations/OtherVersionsButton'
-
+import CreateOtherVersionButton from '../collaborations/CreateOtherVersionButton'
+import './RecipeItem.css'
 
 export class RecipePage extends PureComponent {
   static propTypes = {
@@ -53,8 +53,6 @@ export class RecipePage extends PureComponent {
 
     if (!_id) return null
 
-    console.log(this.props.params)
-
     return(
       <article className="recipe page">
         <header>
@@ -66,6 +64,7 @@ export class RecipePage extends PureComponent {
         </header>
 
         <OtherVersionsButton params={this.props.params} />
+        <CreateOtherVersionButton params={this.props.params}/>
 
         <main>
           <div className="description">
