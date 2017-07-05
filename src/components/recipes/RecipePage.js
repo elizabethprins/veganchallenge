@@ -6,6 +6,9 @@ import getCurrentRecipe from '../../actions/recipes/get'
 import Title from '../Title'
 import OtherVersionsButton from '../collaborations/OtherVersionsButton'
 import CreateOtherVersionButton from '../collaborations/CreateOtherVersionButton'
+import RaisedButton from 'material-ui/RaisedButton'
+import Plus from 'material-ui/svg-icons/content/add'
+import Minus from 'material-ui/svg-icons/content/remove'
 import './RecipeItem.css'
 
 export class RecipePage extends PureComponent {
@@ -33,12 +36,6 @@ export class RecipePage extends PureComponent {
     this.props.toggleLike(_id)
   }
 
-  renderIngredientList(ingredient) {
-    return (
-      <p>{ingredient.amount} {ingredient.measure} {ingredient.ingredient}</p>
-    )
-  }
-
   render() {
     const {
       _id,
@@ -52,6 +49,31 @@ export class RecipePage extends PureComponent {
     } = this.props
 
     if (!_id) return null
+
+    var people=persons
+    var items=ingredients
+
+    function removeOnePerson() {
+      people--
+      if (people>0) {
+        document.getElementById('persons').innerHTML = people
+        items.map((item) => {
+          var hello = people/persons * item.amount
+          console.log(hello)
+          document.getElementById('ingredient').innerHTML = hello;
+        })
+      }
+    }
+
+    function addOnePerson() {
+      people++
+      document.getElementById('persons').innerHTML = people;
+      items.map((item) => {
+        var hello = people/persons * item.amount
+        console.log(hello)
+        document.getElementById('ingredient').innerHTML = hello;
+      })
+    }
 
     return(
       <article className="recipe page">
@@ -76,9 +98,14 @@ export class RecipePage extends PureComponent {
           </div>
 
           <div className="ingredients">
-            Voor {persons} personen:
+            <p>Voor <b id="persons">{persons}</b> personen:</p>
+            <RaisedButton primary={true} icon={<Minus/>} onClick={removeOnePerson}/><RaisedButton primary={true} icon={<Plus/>} onClick={addOnePerson}/>
             <ul>
-              {ingredients.map(this.renderIngredientList)}
+              {ingredients.map((ingredient) => {
+                return (
+                  <p><b id="ingredient">{ingredient.amount}</b> {ingredient.measure} {ingredient.ingredient}</p>
+                )
+              })}
             </ul>
           </div>
         </main>

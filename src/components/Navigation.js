@@ -17,7 +17,11 @@ class Navigation extends PureComponent {
   }
 
   signUp = () => {
-    this.props.push('/sign-up')
+    this.props.push('/registreren')
+  }
+
+  signIn = () => {
+    this.props.push('/inloggen')
   }
 
   goHome = () => {
@@ -28,11 +32,12 @@ class Navigation extends PureComponent {
     const { signedIn, signOut } = this.props
     return (
       <AppBar
-        title="Recipes"
+        title="Vegan Recepten"
         iconElementLeft={<IconButton onClick={this.goHome}><LocalDining /></IconButton>}
         iconElementRight={signedIn ?
-          <FlatButton label="Sign out" onClick={signOut} /> :
-          <FlatButton label="Sign up" onClick={this.signUp} />
+          <FlatButton label="Uitloggen" onClick={signOut} /> :
+          <div><FlatButton label="Registreren" onClick={this.signUp} />
+          <FlatButton label="Inloggen" onClick={this.signIn} /></div>
         }
       />
     )
