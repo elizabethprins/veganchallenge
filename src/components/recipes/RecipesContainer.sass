@@ -9,24 +9,37 @@
     flex-direction: column
 
     @include breakpoint($breakpoint-large)
+      max-width: 1600px
       flex-flow: row wrap
 
     @include breakpoint($breakpoint-medium)
       flex-flow: row wrap
+
+  &> header
+    display: flex
+    flex-direction: column
+    margin: 0 auto
+    flex: 2 100%
+
+    @include breakpoint($breakpoint-large)
+      max-width: 1000px
+
+    @include breakpoint($breakpoint-medium)
 
   .recipes
     margin: 0 auto
     display: flex
     flex-wrap: wrap
-    flex-direction: row
+    flex-direction: column
+    justify-content: center
 
     @include breakpoint($breakpoint-large)
-      max-width: 1260px
+      max-width: 1600px
       display: flex
-      padding: 0 30px
+
       flex-flow: row wrap
 
     @include breakpoint($breakpoint-medium)
       display: flex
-      flex-direction: column
+      flex-direction: row
       flex-flow: row wrap

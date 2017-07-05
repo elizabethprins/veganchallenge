@@ -27,11 +27,10 @@ render() {
   return(
       <div className="recipes wrapper">
         <header>
-
+          < Search />
         </header>
 
         <main>
-          < Search />
           <div className="recipes">
             { this.props.recipes.map(this.renderRecipe.bind(this)) }
           </div>
