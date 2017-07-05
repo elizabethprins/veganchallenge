@@ -127,4 +127,4 @@ const mapStateToProps = ({ recipes }, { params }) => {
   }
 }
 
-export default connect(mapStateToProps, { fetchRecipes })(RecipePage)
+export default connect(mapStateToProps)(RecipePage)
