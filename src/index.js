@@ -9,6 +9,8 @@ import injectTapEventPlugin from 'react-tap-event-plugin'
 import App from './App'
 import RecipesContainer from './components/recipes/RecipesContainer'
 import RecipePage from './components/recipes/RecipePage'
+import CollaborationContainer from './components/collaborations/CollaborationContainer'
+import CollaborationEditor from './components/collaborations/CollaborationEditor'
 import SignUp from './components/users/SignUp'
 import SignIn from './components/users/SignIn'
 import './index.css'
@@ -19,8 +21,10 @@ ReactDOM.render(
       <Route path="/" component={App}>
         <IndexRoute component={RecipesContainer} />
         <Route path="/recepten/:recipeId" component={RecipePage} />
-        <Route path="/sign-in" component={SignIn} />
-        <Route path="/sign-up" component={SignUp} />
+        <Route path="/recepten/:recipeId/andere-versies" component={CollaborationContainer} />
+        <Route path="/recepten/:recipeId/nieuwe-versie" component={CollaborationEditor} />
+        <Route path="/inloggen" component={SignIn} />
+        <Route path="/registreren" component={SignUp} />
       </Route>
     </Router>
   </Provider>,
