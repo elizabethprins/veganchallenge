@@ -2,9 +2,13 @@ import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import ReactMarkdown from 'react-markdown'
+import SelectField from 'material-ui/SelectField'
+import MenuItem from 'material-ui/MenuItem'
+
 import './RecipeItem.css'
 import fetchRecipes from '../../actions/recipes/fetch'
 import Title from '../Title'
+
 
 export class RecipePage extends PureComponent {
   static propTypes = {
@@ -29,27 +33,28 @@ export class RecipePage extends PureComponent {
     this.props.toggleLike(_id)
   }
 
+
   renderIngredientList(ingredient) {
     return (
       <p>{ingredient.amount} {ingredient.measure} {ingredient.ingredient}</p>
     )
   }
 
+
   render() {
     const {
       _id,
       title,
       description,
-      persons,
       cookingSteps,
+      persons,
       ingredients,
       picture,
       author,
     } = this.props
 
-    if (!_id) return null
 
-    console.log(this.props)
+    if (!_id) return null
 
     return(
       <article className="recipe page">
@@ -71,8 +76,8 @@ export class RecipePage extends PureComponent {
           </div>
 
           <div className="ingredients">
-            Voor {persons} personen:
             <ul>
+              <strong>{`Voor ${persons} ${persons > 1 ? 'personen' : 'persoon'}:`}</strong>
               {ingredients.map(this.renderIngredientList)}
             </ul>
           </div>
