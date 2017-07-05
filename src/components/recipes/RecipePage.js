@@ -2,13 +2,12 @@ import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import ReactMarkdown from 'react-markdown'
-import fetchRecipes from '../../actions/recipes/fetch'
-import getCurrentRecipe from '../../actions/recipes/get'
+import SelectField from 'material-ui/SelectField'
+import MenuItem from 'material-ui/MenuItem'
 
-import Title from '../Title'
-import OtherVersionsButton from '../collaborations/OtherVersionsButton'
-import CreateOtherVersionButton from '../collaborations/CreateOtherVersionButton'
 import './RecipeItem.css'
+import fetchRecipes from '../../actions/recipes/fetch'
+import Title from '../Title'
 
 
 export class RecipePage extends PureComponent {
@@ -19,16 +18,14 @@ export class RecipePage extends PureComponent {
     cookingSteps: PropTypes.string,
     persons: PropTypes.number,
     tip: PropTypes.string,
-    fetchRecipes: PropTypes.func.isRequired,
+    // fetchRecipes: PropTypes.func.isRequired,
     author: PropTypes.shape({
       name: PropTypes.string.isRequired,
     })
   }
 
   componentWillMount() {
-    const { recipe, getCurrentRecipe } = this.props
-    const { recipeId } = this.props.params
-    getCurrentRecipe(recipeId)
+    this.props.fetchRecipes()
   }
 
   toggleLike() {
@@ -56,6 +53,7 @@ export class RecipePage extends PureComponent {
       author,
     } = this.props
 
+
     if (!_id) return null
 
     return(
@@ -67,9 +65,6 @@ export class RecipePage extends PureComponent {
           <Title content={ title } />
           <p className="author">By: { author.name }</p>
         </header>
-
-        <OtherVersionsButton params={this.props.params} />
-        <CreateOtherVersionButton params={this.props.params}/>
 
         <main>
           <div className="description">
@@ -105,4 +100,4 @@ const mapStateToProps = ({ recipes }, { params }) => {
   }
 }
 
-export default connect(mapStateToProps, { getCurrentRecipe })(RecipePage)
+export default connect(mapStateToProps, { fetchRecipes })(RecipePage)
