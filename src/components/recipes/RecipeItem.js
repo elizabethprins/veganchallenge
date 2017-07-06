@@ -5,7 +5,10 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router'
 import LikeButton from '../../components/LikeButton'
 import toggleLike from '../../actions/recipes/toggleLike'
-
+// import cBook from 'material-ui/svg-icons/action/alarm'
+import cBook from '../../images/food.svg'
+import { history } from '../../store'
+import IconButton from 'material-ui/IconButton'
 import './RecipeItem.css'
 
 const PLACEHOLDER = 'http://via.placeholder.com/500x180?text=No%20Image'
@@ -76,6 +79,9 @@ export class RecipeItem extends PureComponent {
       this.props.toggleLike(_id, liked)
     }
 
+  cookBook () {
+    history.push('/cookBook')
+  }
 
   render() {
     const {
@@ -86,19 +92,22 @@ export class RecipeItem extends PureComponent {
       description, cookingSteps, tip,liked, likedBy, author, comments,
     } = this.props
 
+
+
     return(
       <main>
       <article className="recipe">
-          <Link to={`/recepten/${_id}`}>
-            <div className="cover"
-            style={{ backgroundImage: `url(${picture || PLACEHOLDER })` }} Link to={`/recepten/${_id}`} />
-          </Link>
-          <div className="details">
             <h5> { title } </h5>
+            <Link to={`/recepten/${_id}`}>
+              <div className="cover"
+              style={{ backgroundImage: `url(${picture || PLACEHOLDER })` }} Link to={`/recepten/${_id}`} />
+            </Link>
+          <div className="details">
             <LikeButton
                 liked={liked}
                 likes={likedBy.length}
                 onChange={this.toggleLike.bind(this)} />
+            <IconButton onClick={this.cookBook}><img className="cBook" alt="liked" src={ cBook } /></IconButton>
           </div>
       </article>
         </main>

@@ -24,6 +24,7 @@ ReactDOM.render(
         <Route path="/create-recipe" component={RecipeEditor} />
         <Route path="/recepten/:recipeId/andere-versies" component={CollaborationContainer} />
         <Route path="/recepten/:recipeId/nieuwe-versie" component={CollaborationEditor} />
+        <Route path="/cookBook" />
         <Route path="/inloggen" component={SignIn} />
         <Route path="/registreren" component={SignUp} />
       </Route>
