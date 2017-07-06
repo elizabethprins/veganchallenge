@@ -29,15 +29,11 @@ export default ({ query, type } = {}) => {
       }
     }
 
-    console.log(type)
-
     if (type) {
       type.map((i) => {
         search.query[i] = true
       })
     }
-
-    console.log(search)
 
     api.app.authenticate()
       .then(() => {

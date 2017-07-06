@@ -6,8 +6,8 @@ import { push } from 'react-router-redux'
 import signOut from '../actions/user/sign-out'
 import AppBar from 'material-ui/AppBar'
 import IconButton from 'material-ui/IconButton'
-import LocalDining from 'material-ui/svg-icons/maps/local-dining'
 import FlatButton from 'material-ui/FlatButton'
+import Book from 'material-ui/svg-icons/communication/import-contacts'
 import HeartRed from '../images/paprika_full.svg'
 
 class Navigation extends PureComponent {
@@ -23,6 +23,10 @@ class Navigation extends PureComponent {
 
   signIn = () => {
     this.props.push('/inloggen')
+  }
+
+  cookBooks = () => {
+    this.props.push('/kookboeken')
   }
 
   goHome = () => {
@@ -41,9 +45,15 @@ class Navigation extends PureComponent {
         title="Vegan Recepten"
         iconElementLeft={<IconButton onClick={this.goHome}><img className="heart" alt="liked" src={ HeartRed } /></IconButton>}
         iconElementRight={signedIn ?
-          <FlatButton label="Uitloggen" onClick={signOut} /> :
-          <div><FlatButton label="Registreren" onClick={this.signUp} />
-          <FlatButton label="Inloggen" onClick={this.signIn} /></div>
+          <div>
+          <FlatButton primary={true} icon={<Book/>} onClick={this.cookBooks} />
+          <FlatButton label="Uitloggen" onClick={signOut} />
+          </div>
+          :
+          <div>
+          <FlatButton label="Registreren" onClick={this.signUp} />
+          <FlatButton label="Inloggen" onClick={this.signIn} />
+          </div>
         }
       />
     )

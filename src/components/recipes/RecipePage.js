@@ -2,16 +2,11 @@ import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import ReactMarkdown from 'react-markdown'
-import SelectField from 'material-ui/SelectField'
-import MenuItem from 'material-ui/MenuItem'
 import Title from '../Title'
-import OtherVersionsButton from '../collaborations/OtherVersionsButton'
-import CreateOtherVersionButton from '../collaborations/CreateOtherVersionButton'
 import RaisedButton from 'material-ui/RaisedButton'
 import Plus from 'material-ui/svg-icons/content/add'
 import Minus from 'material-ui/svg-icons/content/remove'
 import './RecipePage.css'
-
 
 export class RecipePage extends PureComponent {
   static propTypes = {

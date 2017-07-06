@@ -1,13 +1,12 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import Title from '../../components/Title'
 import RecipeItem from './RecipeItem'
 import './RecipesContainer.css'
 import fetchRecipes from '../../actions/recipes/fetch'
 import subscribeToRecipesService from '../../actions/recipes/subscribe'
-
 import Search from './Search'
+import DropDowns from './DropDowns'
 import CreateRecipeButton from './CreateRecipeButton'
 
 
@@ -29,10 +28,19 @@ export class RecipesContainer extends PureComponent {
 render() {
   return(
       <div className="recipes wrapper">
-        <header>
-          < Search />
-          <CreateRecipeButton />
+        <header className="header">
+          <div className="search">
+            <Search />
+          </div>
         </header>
+
+        <div className="dropdowns">
+          <DropDowns />
+        </div>
+
+        <div>
+          <CreateRecipeButton />
+        </div>
 
         <main>
           <div className="recipes">

@@ -5,7 +5,6 @@ import { push } from 'react-router-redux'
 import Paper from 'material-ui/Paper'
 import TextField from 'material-ui/TextField'
 import RaisedButton from 'material-ui/RaisedButton'
-import FlatButton from 'material-ui/FlatButton'
 import signUp from '../../actions/user/sign-up'
 import Title from '../Title'
 
