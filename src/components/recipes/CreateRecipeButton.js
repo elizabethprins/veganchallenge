@@ -18,7 +18,7 @@ class CreateRecipeButton extends PureComponent {
       <div className="CreateRecipeButton">
         <Link to="/create-recipe">
           <RaisedButton
-            label="New Recipe"
+            label="Voeg recept toe"
             primary={true}
             icon={<StarIcon />} />
         </Link>
