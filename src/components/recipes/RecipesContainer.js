@@ -27,6 +27,7 @@ export class RecipesContainer extends PureComponent {
 
 render() {
   return(
+
       <div className="recipes wrapper">
         <header className="header">
           <div className="search">

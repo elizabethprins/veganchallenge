@@ -51,21 +51,27 @@ export class RecipePage extends PureComponent {
       if (people>0) {
         document.getElementById('persons').innerHTML = people
         items.map((item, i) => {
-          var hello = people/persons * item.amount
-          console.log(hello)
-          document.getElementById(`ingredient-${i}`).innerHTML = hello;
+          if (item.amount !== undefined) {
+            var hello = people/persons * item.amount
+            console.log(hello)
+            document.getElementById(`ingredient-${i}`).innerHTML = hello
+          }
         })
       }
     }
 
     function addOnePerson() {
       people++
-      document.getElementById('persons').innerHTML = people;
-      items.map((item, i) => {
-        var hello = people/persons * item.amount
-        console.log(hello)
-        document.getElementById(`ingredient-${i}`).innerHTML = hello;
-      })
+      if (people>0) {
+        document.getElementById('persons').innerHTML = people;
+        items.map((item, i) => {
+          if (item.amount !== undefined) {
+            var hello = people/persons * item.amount
+            console.log(hello)
+            document.getElementById(`ingredient-${i}`).innerHTML = hello
+          }
+        })
+      }
     }
 
     return(
