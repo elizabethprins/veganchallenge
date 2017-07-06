@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
 import RaisedButton from 'material-ui/RaisedButton'
-import StarIcon from 'material-ui/svg-icons/communication/import-contacts'
+import NewRecipeIcon from 'material-ui/svg-icons/communication/import-contacts'
 import './CreateRecipeButton.css'
 
 class CreateRecipeButton extends PureComponent {
@@ -18,9 +18,9 @@ class CreateRecipeButton extends PureComponent {
       <div className="CreateRecipeButton">
         <Link to="/create-recipe">
           <RaisedButton
-            label="New Recipe"
+            label="Recept Toevoegen"
             primary={true}
-            icon={<StarIcon />} />
+            icon={<NewRecipeIcon />} />
         </Link>
       </div>
     )

@@ -91,7 +91,7 @@ export class RecipeItem extends PureComponent {
       <article className="recipe">
           <Link to={`/recepten/${_id}`}>
             <div className="cover"
-            style={{ backgroundImage: `url(${picture || PLACEHOLDER })` }} Link to={`/recepten/${_id}`} />
+            style={{ backgroundImage: `url(${picture || PLACEHOLDER })` }} />
           </Link>
           <div className="details">
             <h5> { title } </h5>
