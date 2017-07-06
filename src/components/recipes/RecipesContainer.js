@@ -7,7 +7,7 @@ import './RecipesContainer.css'
 import fetchRecipes from '../../actions/recipes/fetch'
 import subscribeToRecipesService from '../../actions/recipes/subscribe'
 
-import Search from '../Search'
+import Search from './Search'
 import CreateRecipeButton from './CreateRecipeButton'
 
 
