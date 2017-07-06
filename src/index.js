@@ -8,8 +8,7 @@ import registerServiceWorker from './registerServiceWorker'
 import App from './App'
 import RecipesContainer from './components/recipes/RecipesContainer'
 import RecipePage from './components/recipes/RecipePage'
-import CollaborationContainer from './components/collaborations/CollaborationContainer'
-import CollaborationEditor from './components/collaborations/CollaborationEditor'
+import CookBooksContainer from './components/cook-books/CookBooksContainer'
 import SignUp from './components/users/SignUp'
 import SignIn from './components/users/SignIn'
 import RecipeEditor from './components/recipes/RecipeEditor'
@@ -21,9 +20,8 @@ ReactDOM.render(
       <Route path="/" component={App}>
         <IndexRoute component={RecipesContainer} />
         <Route path="/recepten/:recipeId" component={RecipePage} />
-        <Route path="/create-recipe" component={RecipeEditor} />
-        <Route path="/recepten/:recipeId/andere-versies" component={CollaborationContainer} />
-        <Route path="/recepten/:recipeId/nieuwe-versie" component={CollaborationEditor} />
+        <Route path="/nieuw-recept" component={RecipeEditor} />
+        <Route path="/kookboeken" component={CookBooksContainer} />
         <Route path="/inloggen" component={SignIn} />
         <Route path="/registreren" component={SignUp} />
       </Route>
