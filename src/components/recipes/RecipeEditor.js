@@ -17,7 +17,7 @@ class RecipeEditor extends PureComponent {
   constructor(props) {
     super()
 
-    const { title, picture, persons, description, cookingSteps,
+    const { title, picture, persons, ingredients, amount, measure, ingredient, description, cookingSteps,
     tip, authorId } = props
 
     this.state = {
@@ -26,6 +26,10 @@ class RecipeEditor extends PureComponent {
       persons,
       description,
       cookingSteps,
+      ingredients: [],
+      amount,
+      measure,
+      ingredient,
       tip,
       authorId,
       values: [],
@@ -70,9 +74,22 @@ class RecipeEditor extends PureComponent {
   }
 
   updatePersons(number) {
-    this.setState({
-      persons: this.refs.persons.value
-    })
+    this.setState({ persons: this.refs.persons.value })
+  }
+
+  updateAmount(event) {
+    const { ingredients, amount } = this.state
+    this.setState({ ingredients: ingredients.concat({amount: this.refs.ingredient.value})})
+  }
+
+  updateMeasure(event) {
+    const { ingredients, measure } = this.state
+    this.setState({ ingredients: ingredients.concat({measure: this.refs.ingredient.value})})
+  }
+
+  updateIngredient(event) {
+    const { ingredients, ingredient } = this.state
+    this.setState({ ingredients: ingredients.concat({ingredient: this.refs.ingredient.value})})
   }
 
   setType(event, index, values) {
@@ -104,6 +121,7 @@ class RecipeEditor extends PureComponent {
       persons,
       description,
       values,
+      ingredients,
       cookingSteps,
       tip,
       authorId
@@ -113,6 +131,7 @@ class RecipeEditor extends PureComponent {
       title,
       picture,
       persons,
+      ingredients,
       description: toMarkdown(description || ''),
       cookingSteps: toMarkdown(cookingSteps || ''),
       tip,
@@ -188,7 +207,31 @@ class RecipeEditor extends PureComponent {
           onChange={this.updatePersons.bind(this)}
           onKeyDown={this.updatePersons.bind(this)} />
 
+        <p>Ingrediënten</p>
 
+        <input
+          type="number"
+          ref="amount"
+          placeholder="Hoeveelheid"
+          defaultValue={this.state.ingredients}
+          onChange={this.updateAmount.bind(this)}
+          onKeyDown={this.updateAmount.bind(this)} />
+
+        <input
+          type="text"
+          ref="measure"
+          placeholder="Eenheid (bijv. tl, ml, bosje etc.)"
+          defaultValue={this.state.ingredients}
+          onChange={this.updateIngredient.bind(this)}
+          onKeyDown={this.updateIngredient.bind(this)} />
+
+        <input
+          type="text"
+          ref="ingredient"
+          placeholder="Ingredient"
+          defaultValue={this.state.ingredients}
+          onChange={this.updateIngredient.bind(this)}
+          onKeyDown={this.updateIngredient.bind(this)} />
 
         <div className="DropDowns">
           <SelectField multiple={true} floatingLabelText="Menugang" value={values} onChange={this.setType.bind(this)}>
