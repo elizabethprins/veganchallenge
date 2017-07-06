@@ -25,7 +25,7 @@ export const palette = {
   textColor: black,
   alternateTextColor: black,
   canvasColor: white,
-  borderColor: grey30,
+  borderColor: grey50,
   disabledColor: black
 }
 
