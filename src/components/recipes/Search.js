@@ -43,6 +43,8 @@ class Search extends PureComponent {
     values: [],
   };
 
+
+
   render() {
     const { type } = this.props.searchQuery
     const { values } = this.state

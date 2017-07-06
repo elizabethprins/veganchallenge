@@ -2,13 +2,13 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
+import { Link } from 'react-router'
 import LikeButton from '../../components/LikeButton'
 import toggleLike from '../../actions/recipes/toggleLike'
 
-import './RecipePage.css'
-import { Link } from 'react-router'
+import './RecipeItem.css'
 
-const PLACEHOLDER = 'http://www.jennybeaumont.com/wp-content/uploads/2015/03/placeholder.gif'
+const PLACEHOLDER = 'http://via.placeholder.com/500x180?text=No%20Image'
 
 export class RecipeItem extends PureComponent {
   static propTypes = {
@@ -68,8 +68,7 @@ export class RecipeItem extends PureComponent {
       _id: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired,
     }),
-    likedBy: PropTypes.bool,
-    comments: PropTypes.string,
+    likedBy: PropTypes.array,
   }
 
   toggleLike() {

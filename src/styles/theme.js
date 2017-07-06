@@ -14,7 +14,7 @@ export const black        = '#343434'
 export const darkGrey     = '#757575'
 export const grey         = '#F8F9FB'
 export const grey50       = 'rgba(222, 222, 222, 0.5)'
-export const grey30       = 'rgba(222, 222, 222, 0.7)'
+export const grey30       = '#68805D'
 
 // Palette
 export const palette = {

@@ -5,8 +5,10 @@ import LoadErrorMessage from './components/LoadErrorMessage'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import muiTheme from './styles/theme'
 import Navigation from './components/Navigation'
-
+import injectTapEventPlugin from 'react-tap-event-plugin'
 import './App.css'
+
+injectTapEventPlugin();
 
 class App extends Component {
   static childContextTypes = {
