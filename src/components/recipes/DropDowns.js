@@ -45,8 +45,6 @@ class Search extends PureComponent {
     const { type } = this.props.searchQuery
     const { values } = this.state
 
-    console.log("values in render", values)
-
     return (
       <div className="DropDowns">
         <SelectField className="field" multiple={true} floatingLabelText="Menugang" value={values} onChange={this.typeSearch} style={styles.customWidth}>

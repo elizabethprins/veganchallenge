@@ -1,7 +1,6 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import Title from '../../components/Title'
 import RecipeItem from './RecipeItem'
 import './RecipesContainer.css'
 import fetchRecipes from '../../actions/recipes/fetch'
