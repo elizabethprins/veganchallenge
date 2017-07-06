@@ -25,12 +25,8 @@ export class RecipePage extends PureComponent {
     persons: PropTypes.number,
     tip: PropTypes.string,
     author: PropTypes.shape({
-      name: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
     })
-  }
-
-  componentWillMount() {
-    this.props.fetchRecipes()
   }
 
   toggleLike() {
