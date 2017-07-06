@@ -39,12 +39,10 @@ class Navigation extends PureComponent {
     return (
       <AppBar
         title="Recepten"
-        // iconElementLeft={<IconButton onClick={this.goHome}><LocalDining /></IconButton>}
-
+        iconElementLeft={<IconButton onClick={this.goHome}><LocalDining /></IconButton>}
         iconElementRight={signedIn ?
           <FlatButton label="Sign out" onClick={signOut} /> :
           <FlatButton label="Sign up" onClick={this.signUp} />}
-          iconElementRight={<Search />}
       />
     )
   }
