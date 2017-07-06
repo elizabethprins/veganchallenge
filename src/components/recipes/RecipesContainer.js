@@ -11,8 +11,6 @@ import Search from './Search'
 import CreateRecipeButton from './CreateRecipeButton'
 
 
-
-
 export class RecipesContainer extends PureComponent {
   static propTypes = {
     recipes: PropTypes.array.isRequired,
