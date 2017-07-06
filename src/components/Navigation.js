@@ -31,6 +31,11 @@ class Navigation extends PureComponent {
 
   render() {
     const { signedIn, signOut } = this.props
+
+    var customTabs = (
+            <customTabs label="Categorieen" />
+      )
+
     return (
       <AppBar
         title="Vegan Recepten"

@@ -7,6 +7,7 @@ import MenuItem from 'material-ui/MenuItem';
 import { RadioButtonGroup, RadioButton } from 'material-ui/RadioButton'
 import searchRecipes from '../../actions/recipes/fetch'
 import updateQuery from '../../actions/recipes/search'
+import SearchIcon from 'material-ui/svg-icons/action/search'
 
 class Search extends PureComponent {
   static propTypes = {
@@ -48,17 +49,18 @@ class Search extends PureComponent {
     const { type } = this.props.searchQuery
     const { values } = this.state
     return (
-      <div className="Search">
-        <div className="SearchBar">
+      <div className="search">
+        <div className="searchBar">
           <TextField
             type="search"
             onChange={this.textSearch}
             onKeyDown={this.textSearch}
-            hintText="Recepten zoeken"
-            fullWidth={true} />
+            fullWidth={false}
+            hintText={< SearchIcon />}
+            />
         </div>
 
-        <div className="Dropdowns">
+        <div className="DropDowns">
           <SelectField multiple={true} hintText="Menugang" value={values} onChange={this.typeSearch}>
             <MenuItem insetChildren={true} checked={values && values.indexOf('breakfast') > -1} value={'breakfast'} primaryText={'Ontbijt'} />
             <MenuItem insetChildren={true} checked={values && values.indexOf('brunch') > -1} value={'brunch'} primaryText={'Brunch'} />

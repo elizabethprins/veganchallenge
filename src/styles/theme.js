@@ -18,15 +18,15 @@ export const grey30       = '#68805D'
 
 // Palette
 export const palette = {
-  primary1Color: deepgreen,
-  primary2Color: mintygreen,
-  primary3Color: mintygreen,
-  accent1Color: freshgreen,
+  primary1Color: white,
+  primary2Color: grey,
+  primary3Color: grey50,
+  accent1Color: grey30,
   textColor: black,
-  alternateTextColor: white,
+  alternateTextColor: black,
   canvasColor: white,
-  borderColor: red,
-  disabledColor: grey30
+  borderColor: grey30,
+  disabledColor: black
 }
 
 export default getMuiTheme({ palette })

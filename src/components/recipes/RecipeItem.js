@@ -87,23 +87,21 @@ export class RecipeItem extends PureComponent {
     } = this.props
 
     return(
+      <main>
       <article className="recipe">
-        <header>
           <Link to={`/recepten/${_id}`}>
-            <div
-              className="cover"
-              style={{ backgroundImage: `url(${picture || PLACEHOLDER })` }} />
-            <h4> { title } </h4>
+            <div className="cover"
+            style={{ backgroundImage: `url(${picture || PLACEHOLDER })` }} Link to={`/recepten/${_id}`} />
           </Link>
-        </header>
-        <footer>
-          <LikeButton
-              liked={liked}
-              likes={likedBy.length}
-              onChange={this.toggleLike.bind(this)} />
-        </footer>
-
+          <div className="details">
+            <h5> { title } </h5>
+            <LikeButton
+                liked={liked}
+                likes={likedBy.length}
+                onChange={this.toggleLike.bind(this)} />
+          </div>
       </article>
+        </main>
     )
   }
 }
