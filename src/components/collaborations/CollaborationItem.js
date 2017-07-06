@@ -2,13 +2,13 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { Link } from 'react-router'
 import LikeButton from '../../components/LikeButton'
 import toggleLike from '../../actions/recipes/toggleLike'
 
-import './RecipeItem.css'
+import './RecipePage.css'
+import { Link } from 'react-router'
 
-const PLACEHOLDER = 'http://via.placeholder.com/500x180?text=No%20Image'
+const PLACEHOLDER = 'http://www.jennybeaumont.com/wp-content/uploads/2015/03/placeholder.gif'
 
 export class RecipeItem extends PureComponent {
   static propTypes = {
@@ -68,7 +68,8 @@ export class RecipeItem extends PureComponent {
       _id: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired,
     }),
-    likedBy: PropTypes.array,
+    likedBy: PropTypes.bool,
+    comments: PropTypes.string,
   }
 
   toggleLike() {
@@ -92,10 +93,13 @@ export class RecipeItem extends PureComponent {
           <Link to={`/recepten/${_id}`}>
             <div
               className="cover"
-              style={{ backgroundImage: `url(${picture || PLACEHOLDER })` }} />
-            <h4> { title } </h4>
+              style={{ backgroundImage: `url(${picture || PLACEHOLDER })` }} Link to={`/recepten/${_id}`} />
           </Link>
+          <h4> { title } </h4>
         </header>
+        <main>
+        </main>
+
         <footer>
           <LikeButton
               liked={liked}

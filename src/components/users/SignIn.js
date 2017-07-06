@@ -41,14 +41,10 @@ export class SignIn extends PureComponent {
     this.props.signIn(user)
   }
 
-  signUp() {
-    this.props.push('/sign-up')
-  }
-
   render() {
     return (
       <Paper style={ dialogStyle }>
-        <Title content="Sign In" level={2} />
+        <Title content="Inloggen" level={2} />
 
         <form onSubmit={this.submitForm.bind(this)}>
           <div className="input">
@@ -57,13 +53,10 @@ export class SignIn extends PureComponent {
           <div className="input">
             <TextField ref="password" type="password" hintText="Password"  />
           </div>
-          <FlatButton
-            onClick={ this.signUp.bind(this) }
-            label="Sign up" />
           <RaisedButton
             style={ buttonStyle }
             onClick={ this.submitForm.bind(this) }
-            label="Sign in"
+            label="Inloggen"
             primary={true} />
         </form>
       </Paper>
