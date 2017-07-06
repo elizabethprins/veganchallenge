@@ -20,7 +20,7 @@ ReactDOM.render(
       <Route path="/" component={App}>
         <IndexRoute component={RecipesContainer} />
         <Route path="/recepten/:recipeId" component={RecipePage} />
-        <Route path="/create-recipe" component={RecipeEditor} />
+        <Route path="/nieuw-recept" component={RecipeEditor} />
         <Route path="/kookboeken" component={CookBooksContainer} />
         <Route path="/inloggen" component={SignIn} />
         <Route path="/registreren" component={SignUp} />
