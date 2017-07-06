@@ -12,6 +12,7 @@ import CollaborationContainer from './components/collaborations/CollaborationCon
 import CollaborationEditor from './components/collaborations/CollaborationEditor'
 import SignUp from './components/users/SignUp'
 import SignIn from './components/users/SignIn'
+import RecipeEditor from './components/recipes/RecipeEditor'
 import './index.css'
 
 ReactDOM.render(
@@ -20,6 +21,7 @@ ReactDOM.render(
       <Route path="/" component={App}>
         <IndexRoute component={RecipesContainer} />
         <Route path="/recepten/:recipeId" component={RecipePage} />
+        <Route path="/create-recipe" component={RecipeEditor} />
         <Route path="/recepten/:recipeId/andere-versies" component={CollaborationContainer} />
         <Route path="/recepten/:recipeId/nieuwe-versie" component={CollaborationEditor} />
         <Route path="/inloggen" component={SignIn} />

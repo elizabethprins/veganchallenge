@@ -6,7 +6,12 @@ import RecipeItem from './RecipeItem'
 import './RecipesContainer.css'
 import fetchRecipes from '../../actions/recipes/fetch'
 import subscribeToRecipesService from '../../actions/recipes/subscribe'
-import Search from './Search'
+
+import Search from '../Search'
+import CreateRecipeButton from './CreateRecipeButton'
+
+
+
 
 export class RecipesContainer extends PureComponent {
   static propTypes = {
@@ -28,6 +33,7 @@ render() {
       <div className="recipes wrapper">
         <header>
           < Search />
+          <CreateRecipeButton />
         </header>
 
         <main>
