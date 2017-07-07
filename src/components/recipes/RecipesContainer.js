@@ -9,7 +9,7 @@ import Search from './Search'
 import DropDowns from './DropDowns'
 import CreateRecipeButton from './CreateRecipeButton'
 import GoToMyRecipesButton from './GoToMyRecipesButton'
-
+import banner from "./pexels-photo-cropped.jpg"
 
 export class RecipesContainer extends PureComponent {
   static propTypes = {
@@ -28,8 +28,12 @@ export class RecipesContainer extends PureComponent {
 
 render() {
   return(
+
       <div className="recipes wrapper">
         <header className="header">
+          <div className="image">
+            <img src={ banner } className="banner" alt="Pen-Pineapple-Apple-Pen"/>
+          </div>
           <div className="search">
             <Search />
           </div>
@@ -37,10 +41,6 @@ render() {
 
         <div className="dropdowns">
           <DropDowns />
-        </div>
-
-        <div>
-          <CreateRecipeButton />
         </div>
 
         <div>

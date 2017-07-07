@@ -7,7 +7,9 @@ import signOut from '../actions/user/sign-out'
 import AppBar from 'material-ui/AppBar'
 import IconButton from 'material-ui/IconButton'
 import FlatButton from 'material-ui/FlatButton'
+import RaisedButton from 'material-ui/RaisedButton'
 import Book from 'material-ui/svg-icons/communication/import-contacts'
+import Recipe from 'material-ui/svg-icons/action/receipt'
 import HeartRed from '../images/paprika_full.svg'
 
 class Navigation extends PureComponent {
@@ -25,8 +27,12 @@ class Navigation extends PureComponent {
     this.props.push('/inloggen')
   }
 
-  cookBooks = () => {
+  cookbooks = () => {
     this.props.push('/kookboeken')
+  }
+
+  createRecipe = () => {
+    this.props.push('/nieuw-recept')
   }
 
   goHome = () => {
@@ -46,7 +52,8 @@ class Navigation extends PureComponent {
         iconElementLeft={<IconButton onClick={this.goHome}><img className="heart" alt="liked" src={ HeartRed } /></IconButton>}
         iconElementRight={signedIn ?
           <div>
-          <FlatButton primary={true} icon={<Book/>} onClick={this.cookBooks} />
+          <RaisedButton primary={true} icon={<Recipe/>} onClick={this.createRecipe} />
+          <RaisedButton primary={true} icon={<Book/>} onClick={this.cookbooks} />
           <FlatButton label="Uitloggen" onClick={signOut} />
           </div>
           :

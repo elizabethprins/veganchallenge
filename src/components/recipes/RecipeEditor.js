@@ -4,6 +4,8 @@ import Editor from 'react-medium-editor'
 import toMarkdown from 'to-markdown'
 import SelectField from 'material-ui/SelectField'
 import MenuItem from 'material-ui/MenuItem'
+import FlatButton from 'material-ui/FlatButton'
+import Plus from 'material-ui/svg-icons/content/add'
 import { connect } from 'react-redux'
 import { replace } from 'react-router-redux'
 import createRecipe from '../../actions/recipes/create'
@@ -17,8 +19,7 @@ class RecipeEditor extends PureComponent {
   constructor(props) {
     super()
 
-    const { title, picture, persons, description, cookingSteps,
-    tip, authorId } = props
+    const { title, picture, persons, ingredients, amount, measure, ingredient, description, cookingSteps, tip, authorId, input } = props
 
     this.state = {
       title,
@@ -26,10 +27,15 @@ class RecipeEditor extends PureComponent {
       persons,
       description,
       cookingSteps,
+      ingredients: [],
+      amount,
+      measure,
+      ingredient,
       tip,
       authorId,
       values: [],
-      errors: {}
+      errors: {},
+      input: [0]
     }
   }
 
@@ -70,9 +76,26 @@ class RecipeEditor extends PureComponent {
   }
 
   updatePersons(number) {
-    this.setState({
-      persons: this.refs.persons.value
-    })
+    this.setState({ persons: this.refs.persons.value })
+  }
+
+  updateAmount(event) {
+    this.setState({ amount: this.refs.amount.value})
+  }
+
+  updateMeasure(event) {
+    this.setState({ measure: this.refs.measure.value})
+  }
+
+  updateIngredient(event) {
+    this.setState({ ingredient: this.refs.ingredient.value})
+  }
+
+  addIngredient() {
+    var newIngredient = this.state.input.length;
+    this.setState({input: this.state.input.concat(newIngredient)},function(){
+            return;
+        })
   }
 
   setType(event, index, values) {
@@ -104,6 +127,10 @@ class RecipeEditor extends PureComponent {
       persons,
       description,
       values,
+      ingredients,
+      amount,
+      measure,
+      ingredient,
       cookingSteps,
       tip,
       authorId
@@ -113,6 +140,10 @@ class RecipeEditor extends PureComponent {
       title,
       picture,
       persons,
+      ingredients,
+      amount,
+      measure,
+      ingredient,
       description: toMarkdown(description || ''),
       cookingSteps: toMarkdown(cookingSteps || ''),
       tip,
@@ -130,9 +161,8 @@ class RecipeEditor extends PureComponent {
     }
   }
 
-
   render() {
-    const { errors, values } = this.state
+    const { errors, values, input } = this.state
 
     return (
       <div className="editor">
@@ -176,8 +206,7 @@ class RecipeEditor extends PureComponent {
           onChange={this.updatePicture.bind(this)}
           onKeyDown={this.updatePicture.bind(this)} />
 
-          { errors.picture && <p className="error">{ errors.picture }</p> }
-
+        { errors.picture && <p className="error">{ errors.picture }</p> }
 
         <input
           type="number"
@@ -188,7 +217,40 @@ class RecipeEditor extends PureComponent {
           onChange={this.updatePersons.bind(this)}
           onKeyDown={this.updatePersons.bind(this)} />
 
+        <p>Ingrediënten</p>
 
+        {input.map((i) => {
+          return(
+            <div>
+              <input
+                type="number"
+                ref="amount"
+                placeholder="Hoeveelheid"
+                onChange={this.updateAmount.bind(this)}
+                onKeyDown={this.updateAmount.bind(this)} />
+
+              <input
+                type="text"
+                ref="measure"
+                placeholder="Eenheid (bijv. tl, ml, bosje etc.)"
+                onChange={this.updateMeasure.bind(this)}
+                onKeyDown={this.updateMeasure.bind(this)} />
+
+              <input
+                type="text"
+                ref="ingredient"
+                placeholder="Ingredient"
+                onChange={this.updateIngredient.bind(this)}
+                onKeyDown={this.updateIngredient.bind(this)} />
+            </div>
+          )
+        })}
+
+        <div>
+          <FlatButton onClick={this.addIngredient.bind(this)}>
+            <Plus/>
+          </FlatButton>
+        </div>
 
         <div className="DropDowns">
           <SelectField multiple={true} floatingLabelText="Menugang" value={values} onChange={this.setType.bind(this)}>

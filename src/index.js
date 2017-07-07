@@ -9,10 +9,11 @@ import App from './App'
 import RecipesContainer from './components/recipes/RecipesContainer'
 import RecipePage from './components/recipes/RecipePage'
 import MyRecipes from './components/recipes/MyRecipes'
-import CookBooksContainer from './components/cook-books/CookBooksContainer'
+import CookbooksContainer from './components/cookbooks/CookbooksContainer'
 import SignUp from './components/users/SignUp'
 import SignIn from './components/users/SignIn'
 import RecipeEditor from './components/recipes/RecipeEditor'
+import CookbookEditor from './components/cookbooks/CookbookEditor'
 import './index.css'
 
 ReactDOM.render(
@@ -21,9 +22,11 @@ ReactDOM.render(
       <Route path="/" component={App}>
         <IndexRoute component={RecipesContainer} />
         <Route path="/recepten/:recipeId" component={RecipePage} />
+        <Route path="/cookBook" />
         <Route path="/nieuw-recept" component={RecipeEditor} />
         <Route path="/mijn-recepten/:currentUserId" component={MyRecipes} />
-        <Route path="/kookboeken" component={CookBooksContainer} />
+        <Route path="/kookboeken" component={CookbooksContainer} />
+        <Route path="/nieuw-kookboek" component={CookbookEditor} />
         <Route path="/inloggen" component={SignIn} />
         <Route path="/registreren" component={SignUp} />
       </Route>

@@ -5,6 +5,8 @@ import recipes from './recipes'
 import currentUser from './currentUser'
 import searchQuery from './searchQuery'
 import currentRecipe from './currentRecipe'
+import cookbooks from './cookbooks'
+import currentCookbook from './currentCookbook'
 
 export default {
   loading,
@@ -12,5 +14,7 @@ export default {
   recipes,
   currentUser,
   searchQuery,
-  currentRecipe
+  currentRecipe,
+  cookbooks,
+  currentCookbook,
 }
