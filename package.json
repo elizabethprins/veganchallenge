@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "animate.css": "^3.5.2",
     "breakpoint-sass": "^2.7.1",
     "feathers": "^2.1.4",
     "feathers-authentication-client": "^0.3.2",
