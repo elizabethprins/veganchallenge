@@ -16,8 +16,12 @@ class CookbookItem extends PureComponent {
 
     return(
       <main>
-        <h1> {bookTitle} </h1>
-        <h2> {summary} </h2>
+        <article className="cookbook">
+          <div className="cover"
+          style={{ backgroundImage: `url(https://www.materialui.co/materialIcons/action/book_grey_192x192.png)` }} />
+          <h3> {bookTitle} </h3>
+          <p> {summary} </p>
+        </article>
       </main>
     )
   }
