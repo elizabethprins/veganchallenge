@@ -8,7 +8,7 @@ import subscribeToRecipesService from '../../actions/recipes/subscribe'
 import Search from './Search'
 import DropDowns from './DropDowns'
 import CreateRecipeButton from './CreateRecipeButton'
-
+import banner from "./pexels-photo.jpg";
 
 export class RecipesContainer extends PureComponent {
   static propTypes = {
@@ -29,6 +29,9 @@ render() {
   return(
       <div className="recipes wrapper">
         <header className="header">
+          <div className="image">
+            <img src={ banner } className="banner" alt="Pen-Pineapple-Apple-Pen"/>
+          </div>
           <div className="search">
             <Search />
           </div>
