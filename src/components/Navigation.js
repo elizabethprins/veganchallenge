@@ -53,11 +53,12 @@ class Navigation extends PureComponent {
         iconElementRight={signedIn ?
           <div>
           <RaisedButton primary={true} icon={<Recipe/>} onClick={this.createRecipe} />
-          <RaisedButton primary={true} icon={<Book/>} onClick={this.cookbooks} />
+          <RaisedButton primary={true} icon={<Book/>} label="Kookboeken" onClick={this.cookbooks} />
           <FlatButton label="Uitloggen" onClick={signOut} />
           </div>
           :
           <div>
+          <RaisedButton primary={true} icon={<Book/>} label="Kookboeken" onClick={this.cookbooks} />
           <FlatButton label="Registreren" onClick={this.signUp} />
           <FlatButton label="Inloggen" onClick={this.signIn} />
           </div>
