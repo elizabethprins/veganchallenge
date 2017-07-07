@@ -11,6 +11,7 @@ import RaisedButton from 'material-ui/RaisedButton'
 import Book from 'material-ui/svg-icons/communication/import-contacts'
 import Recipe from 'material-ui/svg-icons/action/receipt'
 import HeartRed from '../images/paprika_full.svg'
+import GoToMyRecipesButton from './recipes/GoToMyRecipesButton'
 
 class Navigation extends PureComponent {
   static propTypes = {
@@ -31,6 +32,10 @@ class Navigation extends PureComponent {
     this.props.push('/kookboeken')
   }
 
+  myRecipes = () => {
+    this.props.push('/')
+  }
+
   createRecipe = () => {
     this.props.push('/nieuw-recept')
   }
@@ -39,8 +44,14 @@ class Navigation extends PureComponent {
     this.props.push('/')
   }
 
+  myRecipes = () => {
+    const { currentUser } = this.props
+    console.log(this)
+    this.props.push(`/mijn-recepten/${currentUser._id}`)
+  }
+
   render() {
-    const { signedIn, signOut } = this.props
+    const { signedIn, signOut, currentUser } = this.props
 
     var customTabs = (
             <customTabs label="Categorieen" />
@@ -52,7 +63,7 @@ class Navigation extends PureComponent {
         iconElementLeft={<IconButton onClick={this.goHome}><img className="heart" alt="liked" src={ HeartRed } /></IconButton>}
         iconElementRight={signedIn ?
           <div>
-          <RaisedButton primary={true} icon={<Recipe/>} onClick={this.createRecipe} />
+    
           <RaisedButton primary={true} icon={<Book/>} label="Kookboeken" onClick={this.cookbooks} />
           <FlatButton label="Uitloggen" onClick={signOut} />
           </div>
