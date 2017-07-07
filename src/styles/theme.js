@@ -18,14 +18,14 @@ export const grey30       = '#68805D'
 
 // Palette
 export const palette = {
-  primary1Color: white,
+  primary1Color: deepgreen,
   primary2Color: grey,
   primary3Color: grey50,
   accent1Color: grey30,
   textColor: black,
   alternateTextColor: black,
   canvasColor: white,
-  borderColor: grey50,
+  borderColor: deepgreen,
   disabledColor: black
 }
 

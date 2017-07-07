@@ -30,8 +30,6 @@ class Search extends PureComponent {
   }
 
   render() {
-    const { type } = this.props.searchQuery
-
     return (
       <div className="searchBar">
         <TextField

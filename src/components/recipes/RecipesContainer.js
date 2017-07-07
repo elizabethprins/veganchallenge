@@ -2,27 +2,31 @@ import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import RecipeItem from './RecipeItem'
-import './RecipesContainer.css'
 import fetchRecipes from '../../actions/recipes/fetch'
+import fetchCookbooks from '../../actions/cookbooks/fetch'
 import subscribeToRecipesService from '../../actions/recipes/subscribe'
+import subscribeToCookbooksService from '../../actions/cookbooks/subscribe'
 import Search from './Search'
 import DropDowns from './DropDowns'
-import CreateRecipeButton from './CreateRecipeButton'
-import banner from "./pexels-photo.jpg";
+import banner from "./pexels-photo.jpg"
+import './RecipesContainer.css'
 
 export class RecipesContainer extends PureComponent {
   static propTypes = {
     recipes: PropTypes.array.isRequired,
     fetchRecipes: PropTypes.func.isRequired,
+    cookbooks: PropTypes.array.isRequired,
   }
 
   componentWillMount() {
     this.props.fetchRecipes()
+    this.props.fetchCookbooks()
     this.props.subscribeToRecipesService()
+    this.props.subscribeToCookbooksService()
   }
 
   renderRecipe(recipe, index) {
-    return <RecipeItem key={index} { ...recipe }  />
+    return <RecipeItem key={index} { ...recipe } cookBooks={this.props.cookbooks} />
   }
 
 render() {
@@ -52,8 +56,8 @@ render() {
   }
 }
 
-const mapStateToProps = ({ recipes }) => ({ recipes })
+const mapStateToProps = ({ recipes, cookbooks }) => ({ recipes, cookbooks })
 
 export default connect(mapStateToProps, {
-  fetchRecipes, subscribeToRecipesService
+  fetchRecipes, fetchCookbooks, subscribeToRecipesService, subscribeToCookbooksService
 })(RecipesContainer)
