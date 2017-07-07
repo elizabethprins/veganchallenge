@@ -8,6 +8,8 @@ import fetchCookbooks from '../../actions/cookbooks/fetch'
 import subscribeToCookbooksService from '../../actions/cookbooks/subscribe'
 import Dialog from 'material-ui/Dialog'
 import CookbookEditor from './CookbookEditor'
+import Plus from 'material-ui/svg-icons/content/add'
+import './CookbooksContainer.css'
 
 export class CookbooksContainer extends PureComponent {
   constructor(props) {
@@ -47,17 +49,11 @@ export class CookbooksContainer extends PureComponent {
   }
 
   render() {
-    if (!this.props.signedIn) return null
-
-    console.log(this.props)
-    console.log('hello')
-
     return(
-      <div>
-        <h1>Dit zijn jouw kookboeken</h1>
-        <div>
-          <RaisedButton label="Maak nieuw kookboek" primary={true}
-          icon={<Icon />} onTouchTap={this.handleAddCookBookOpen.bind(this)} />
+      <div className="cookbooks wrapper">
+        <header className="header">
+          <RaisedButton label="Nieuw kookboek" primary={true}
+          icon={<Plus />} onTouchTap={this.handleAddCookBookOpen.bind(this)} />
             <Dialog
               title="Maak een nieuw kookboek"
               modal={false}
@@ -66,17 +62,22 @@ export class CookbooksContainer extends PureComponent {
             >
               <CookbookEditor handleAddCookBookClose={this.handleAddCookBookClose}/>
             </Dialog>
+        </header>
+
+        <main>
+          <div>
+
+          </div>
+          <div className="cookbooks">
             { this.props.cookbooks.map(this.renderCookbook.bind(this)) }
-        </div>
+          </div>
+        </main>
       </div>
     )
   }
 }
 
-
-const mapStateToProps = ({ currentUser, cookbooks }) => ({
-  signedIn: !!currentUser && !!currentUser._id,
-  cookbooks })
+const mapStateToProps = ({ cookbooks }) => ({ cookbooks })
 
 export default connect(mapStateToProps, {
   fetchCookbooks, subscribeToCookbooksService

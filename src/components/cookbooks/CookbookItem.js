@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
+import './CookbookItem.css'
 
 class CookbookItem extends PureComponent {
   static propTypes = {
@@ -15,8 +16,12 @@ class CookbookItem extends PureComponent {
 
     return(
       <main>
-        <h1> {bookTitle} </h1>
-        <h2> {summary} </h2>
+        <article className="cookbook">
+          <div className="cover"
+          style={{ backgroundImage: `url(http://www.iconsdb.com/icons/preview/black/book-xxl.png)` }} />
+          <h3> {bookTitle} </h3>
+          <p> {summary} </p>
+        </article>
       </main>
     )
   }
