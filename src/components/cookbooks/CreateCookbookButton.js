@@ -5,7 +5,7 @@ import { Link } from 'react-router'
 import RaisedButton from 'material-ui/RaisedButton'
 import Icon from 'material-ui/svg-icons/communication/import-contacts'
 
-class CreateCookBookButton extends PureComponent {
+class CreateCookbookButton extends PureComponent {
   static propTypes = {
     signedIn: PropTypes.bool,
   }
@@ -14,7 +14,7 @@ class CreateCookBookButton extends PureComponent {
     if (!this.props.signedIn) return null
 
     return (
-      <div className="CreateCookBookButton">
+      <div className="CreateCookbookButton">
         <Link to="/nieuw-kookboek">
           <RaisedButton
             label="Maak nieuw kookboek"
@@ -30,4 +30,4 @@ const mapStateToProps = ({ currentUser }) => ({
   signedIn: !!currentUser && !!currentUser._id,
 })
 
-export default connect(mapStateToProps)(CreateCookBookButton)
+export default connect(mapStateToProps)(CreateCookbookButton)
