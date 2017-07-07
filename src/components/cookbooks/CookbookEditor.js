@@ -95,7 +95,7 @@ class CookbookEditor extends PureComponent {
     const { errors, values } = this.state
 
     return (
-      <div className="editor">
+      <div className="cookbookEditor">
         <input
           type="text"
           ref="bookTitle"
@@ -111,7 +111,7 @@ class CookbookEditor extends PureComponent {
           type="text"
           ref="summary"
           className="summary"
-          placeholder="Beschrijving"
+          placeholder="Omschrijving"
           defaultValue={this.state.summary}
           onChange={this.updateSummary.bind(this)}
           onKeyDown={this.updateSummary.bind(this)} />

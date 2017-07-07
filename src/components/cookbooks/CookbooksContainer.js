@@ -49,25 +49,19 @@ export class CookbooksContainer extends PureComponent {
   render() {
     if (!this.props.signedIn) return null
 
-    console.log(this.props)
-    console.log('hello')
-
     return(
       <div>
-        <h1>Dit zijn jouw kookboeken</h1>
-        <div>
-          <RaisedButton label="Maak nieuw kookboek" primary={true}
-          icon={<Icon />} onTouchTap={this.handleAddCookBookOpen.bind(this)} />
-            <Dialog
-              title="Maak een nieuw kookboek"
-              modal={false}
-              open={this.state.addCookBook}
-              onRequestClose={this.handleAddCookBookClose.bind(this)}
-            >
-              <CookbookEditor handleAddCookBookClose={this.handleAddCookBookClose}/>
-            </Dialog>
-            { this.props.cookbooks.map(this.renderCookbook.bind(this)) }
-        </div>
+        <RaisedButton label="Nieuw kookboek" primary={true}
+        icon={<Icon />} onTouchTap={this.handleAddCookBookOpen.bind(this)} />
+          <Dialog
+            title="Maak een nieuw kookboek"
+            modal={false}
+            open={this.state.addCookBook}
+            onRequestClose={this.handleAddCookBookClose.bind(this)}
+          >
+            <CookbookEditor handleAddCookBookClose={this.handleAddCookBookClose}/>
+          </Dialog>
+          { this.props.cookbooks.map(this.renderCookbook.bind(this)) }
       </div>
     )
   }
