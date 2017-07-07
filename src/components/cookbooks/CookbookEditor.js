@@ -4,6 +4,7 @@ import Editor from 'react-medium-editor'
 import toMarkdown from 'to-markdown'
 import SelectField from 'material-ui/SelectField'
 import MenuItem from 'material-ui/MenuItem'
+import FlatButton from 'material-ui/FlatButton'
 import { connect } from 'react-redux'
 import { replace } from 'react-router-redux'
 import createCookbook from '../../actions/cookbooks/create'
@@ -66,6 +67,10 @@ class CookbookEditor extends PureComponent {
     return Object.keys(errors).length === 0
   }
 
+  handleSaveCookBook = () => {
+    this.saveCookbook()
+  }
+
   saveCookbook() {
     const {
       bookTitle,
@@ -81,8 +86,8 @@ class CookbookEditor extends PureComponent {
 
     if (this.validate(cookbook)) {
       this.props.createCookbook(cookbook)
-        this.props.router.push('/')
     }
+    this.props.handleAddCookBookClose()
   }
 
 
@@ -114,7 +119,7 @@ class CookbookEditor extends PureComponent {
         { errors.summary && <p className="error">{ errors.summary }</p> }
 
         <div className="actions">
-          <button className="primary" onClick={this.saveCookbook.bind(this)}>Opslaan</button>
+          <FlatButton className="primary" label="Opslaan" onTouchTap={this.handleSaveCookBook} />
         </div>
       </div>
     )
