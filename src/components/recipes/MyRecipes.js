@@ -8,8 +8,8 @@ import subscribeToRecipesService from '../../actions/recipes/subscribe'
 import Search from './Search'
 import DropDowns from './DropDowns'
 import CreateRecipeButton from './CreateRecipeButton'
-import GoToMyRecipesButton from './GoToMyRecipesButton'
-import banner from "./pexels-photo-cropped.jpg"
+import Title from '../Title'
+
 
 export class RecipesContainer extends PureComponent {
   static propTypes = {
@@ -23,16 +23,19 @@ export class RecipesContainer extends PureComponent {
   }
 
   renderRecipe(recipe, index) {
-    return <RecipeItem key={index} { ...recipe }  />
+    return <RecipeItem key={index} { ...recipe } />
   }
 
-render() {
-  return(
 
+render() {
+  const {recipes} = this.props
+  const myRecipes = recipes.filter((recipe) => recipe.authorId === this.props.params.currentUserId)
+
+  return(
       <div className="recipes wrapper">
         <header className="header">
-          <div className="image">
-            <img src={ banner } className="banner" alt="Pen-Pineapple-Apple-Pen"/>
+        <div className="title">
+          <Title content="Jouw Recepten" />
           </div>
           <div className="search">
             <Search />
@@ -44,12 +47,12 @@ render() {
         </div>
 
         <div>
-          <GoToMyRecipesButton />
+          <CreateRecipeButton />
         </div>
 
         <main>
           <div className="recipes">
-            { this.props.recipes.map(this.renderRecipe.bind(this)) }
+            { myRecipes.map(this.renderRecipe.bind(this)) }
           </div>
         </main>
       </div>

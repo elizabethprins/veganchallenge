@@ -48,7 +48,7 @@ class Navigation extends PureComponent {
 
     return (
       <AppBar
-        title="Vegan Recepten"
+        title="Veganisme.org"
         iconElementLeft={<IconButton onClick={this.goHome}><img className="heart" alt="liked" src={ HeartRed } /></IconButton>}
         iconElementRight={signedIn ?
           <div>
