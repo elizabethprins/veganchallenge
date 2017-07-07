@@ -20,11 +20,13 @@ class App extends Component {
   }
 
   render() {
+    const { currentUser } = this.props
+    console.log(this.props)
     return (
       <MuiThemeProvider muiTheme={muiTheme}>
         <div className="App">
           <Loading />
-          <Navigation />
+          <Navigation props={this.props.currentUser}/>
           { this.props.children }
           <LoadErrorMessage />
         </div>
