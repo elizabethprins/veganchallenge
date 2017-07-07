@@ -8,7 +8,7 @@ import subscribeToRecipesService from '../../actions/recipes/subscribe'
 import Search from './Search'
 import DropDowns from './DropDowns'
 import CreateRecipeButton from './CreateRecipeButton'
-import banner from "./pexels-photo.jpg";
+import banner from "./pexels-photo-cropped.jpg";
 
 export class RecipesContainer extends PureComponent {
   static propTypes = {
