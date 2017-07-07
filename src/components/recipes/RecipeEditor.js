@@ -91,11 +91,27 @@ class RecipeEditor extends PureComponent {
     this.setState({ ingredient: this.refs.ingredient.value})
   }
 
-  addIngredient() {
-    var newIngredient = this.state.input.length;
-    this.setState({input: this.state.input.concat(newIngredient)},function(){
-            return;
-        })
+  addInputField() {
+    var newInputField = this.state.input.length
+    this.setState({input: this.state.input.concat(newInputField)}, function() {
+      return;
+    })
+    console.log(this.state.input)
+    console.log(this.state.input.length)
+    this.updateAllIngredients()
+  }
+
+  updateAllIngredients() {
+    var newIngredient = {
+      ingredient: this.state.ingredient,
+      measure: this.state.measure,
+      amount: this.state.amount
+    }
+    this.setState({ingredients: this.state.ingredients.concat(newIngredient)},function() {
+      return;
+    })
+    console.log(this.state.ingredients)
+    console.log(this.state.ingredients.length)
   }
 
   setType(event, index, values) {
@@ -107,10 +123,10 @@ class RecipeEditor extends PureComponent {
 
     let errors = {}
 
-     if (!title || title === '') errors.title = 'Je recept moet een titel hebben!'
-     if (!picture || picture === '') errors.picture = 'Voeg een leuke foto toe.'
-     if (!description || description === '') errors.title = 'Beschrijf hier het gerecht.'
-     if (!cookingSteps || cookingSteps === '') errors.title = 'Geef hier de bereidingswijze op.'
+     if (!title || title === '') errors.title = 'Je recept moet een titel hebben'
+     if (!picture || picture === '') errors.picture = 'Voeg een leuke foto toe'
+     if (!description || description === '') errors.title = 'Beschrijf hier het gerecht'
+     if (!cookingSteps || cookingSteps === '') errors.title = 'Geef hier de bereidingswijze op'
 
 
     this.setState({
@@ -121,16 +137,18 @@ class RecipeEditor extends PureComponent {
   }
 
   saveRecipe() {
+
+    this.updateAllIngredients()
+
+    const { amount, measure, ingredient } = this.state
+    const { ingredients } = this.state
+
     const {
       title,
       picture,
       persons,
       description,
       values,
-      ingredients,
-      amount,
-      measure,
-      ingredient,
       cookingSteps,
       tip,
       authorId
@@ -141,19 +159,22 @@ class RecipeEditor extends PureComponent {
       picture,
       persons,
       ingredients,
-      amount,
-      measure,
-      ingredient,
       description: toMarkdown(description || ''),
       cookingSteps: toMarkdown(cookingSteps || ''),
       tip,
       authorId,
       liked: false,
     }
+    console.log("ingredients:", ingredients)
+    console.log("amount, measure, ingredient:", amount, measure, ingredient)
 
     values.map((i) => {
       recipe[i] = true
+        console.log(i)
     })
+
+
+
 
     if (this.validate(recipe)) {
       this.props.createRecipe(recipe)
@@ -163,6 +184,7 @@ class RecipeEditor extends PureComponent {
 
   render() {
     const { errors, values, input } = this.state
+    console.log("input:", input)
 
     return (
       <div className="editor">
@@ -247,7 +269,7 @@ class RecipeEditor extends PureComponent {
         })}
 
         <div>
-          <FlatButton onClick={this.addIngredient.bind(this)}>
+          <FlatButton onClick={this.addInputField.bind(this)}>
             <Plus/>
           </FlatButton>
         </div>
@@ -325,5 +347,6 @@ class RecipeEditor extends PureComponent {
 
 const mapStateToProps = ({ currentUser }) => ({
   signedIn: !!currentUser && !!currentUser._id,
+  currentUser
 })
 export default connect(mapStateToProps, { createRecipe, replace, showError })(RecipeEditor)
