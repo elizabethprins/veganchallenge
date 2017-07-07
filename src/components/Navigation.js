@@ -25,7 +25,7 @@ class Navigation extends PureComponent {
     this.props.push('/inloggen')
   }
 
-  cookBooks = () => {
+  cookbooks = () => {
     this.props.push('/kookboeken')
   }
 
@@ -46,7 +46,7 @@ class Navigation extends PureComponent {
         iconElementLeft={<IconButton onClick={this.goHome}><img className="heart" alt="liked" src={ HeartRed } /></IconButton>}
         iconElementRight={signedIn ?
           <div>
-          <FlatButton primary={true} icon={<Book/>} onClick={this.cookBooks} />
+          <FlatButton primary={true} icon={<Book/>} onClick={this.cookbooks} />
           <FlatButton label="Uitloggen" onClick={signOut} />
           </div>
           :
