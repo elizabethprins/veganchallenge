@@ -8,8 +8,10 @@ import subscribeToRecipesService from '../../actions/recipes/subscribe'
 import subscribeToCookbooksService from '../../actions/cookbooks/subscribe'
 import Search from './Search'
 import DropDowns from './DropDowns'
-import banner from "./pexels-photo.jpg"
 import './RecipesContainer.css'
+import GoToMyRecipesButton from './GoToMyRecipesButton'
+import banner from "./pexels-photo-cropped.jpg"
+
 
 export class RecipesContainer extends PureComponent {
   static propTypes = {
@@ -44,6 +46,10 @@ render() {
 
         <div className="dropdowns">
           <DropDowns />
+        </div>
+
+        <div>
+          <GoToMyRecipesButton />
         </div>
 
         <main>

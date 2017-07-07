@@ -1,7 +1,7 @@
 // src/components/LikeButton.js
 import React, { PureComponent } from 'react'
-import HeartGrey from '../images/paprika.svg'
-import HeartRed from '../images/paprika_full.svg'
+import PaprikaEmpty from '../images/paprika.svg'
+import PaprikaFull from '../images/paprika_full.svg'
 import './LikeButton.css'
 
 class LikeButton extends PureComponent {
@@ -35,9 +35,9 @@ class LikeButton extends PureComponent {
     return (
       <p className={ this.classNames() }>
         <button onClick={ onChange }>
-          <img className="heart" alt="liked" src={ liked ? HeartRed : HeartGrey } />
+          <img className="paprika" alt="liked" src={ liked ? PaprikaFull : PaprikaEmpty } />
           <span className="copy">
-            <img className="heart" alt="not liked" src={ liked ? HeartRed : HeartGrey } />
+            <img className="paprika" alt="not liked" src={ liked ? PaprikaFull : PaprikaEmpty } />
           </span>
         </button>
         <span className="likes">{this.likeStatus()}</span>
