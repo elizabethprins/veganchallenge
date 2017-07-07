@@ -38,10 +38,6 @@ render() {
           <DropDowns />
         </div>
 
-        <div>
-          <CreateRecipeButton />
-        </div>
-
         <main>
           <div className="recipes">
             { this.props.recipes.map(this.renderRecipe.bind(this)) }
