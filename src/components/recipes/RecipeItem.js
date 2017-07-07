@@ -28,6 +28,7 @@ export class RecipeItem extends PureComponent {
 
     handleClose = () => {
       this.setState({open: false});
+      console.log(this.props.cookbookId)
     };
 
   static propTypes = {
@@ -44,8 +45,11 @@ export class RecipeItem extends PureComponent {
       this.props.toggleLike(_id, liked)
     }
 
-  addRecipeToCookBook() {
-    return alert("hello")
+  addRecipeToCookBook(id) {
+    console.log(this.props)
+    const { cookbookId } = this.props
+    const cookBookId = id
+    cookbookId.push(cookBookId)
   }
 
   render() {
@@ -53,12 +57,12 @@ export class RecipeItem extends PureComponent {
 
     const actions = [
      <FlatButton
-       label="Cancel"
+       label="Annuleren"
        primary={true}
        onTouchTap={this.handleClose}
      />,
      <FlatButton
-       label="Submit"
+       label="Toevoegen"
        primary={true}
        keyboardFocused={true}
        onTouchTap={this.handleClose}
@@ -91,7 +95,7 @@ export class RecipeItem extends PureComponent {
                   checkedIcon={<ActionFavorite />}
                   uncheckedIcon={<ActionFavoriteBorder />}
                   label={cookBook.bookTitle}
-                  onCheck={this.addRecipeToCookBook}
+                  onCheck={() => this.addRecipeToCookBook(cookBook._id)}
                 />
               }.bind(this))}
               </Dialog>
@@ -103,7 +107,6 @@ export class RecipeItem extends PureComponent {
 }
 
 const mapStateToProps = ({ currentUser }, { likedBy }) => ({
-  signedIn: !!currentUser && !!currentUser._id,
   liked: !!currentUser && likedBy.includes(currentUser._id),
 })
 
