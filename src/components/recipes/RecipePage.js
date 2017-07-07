@@ -72,7 +72,7 @@ export class RecipePage extends PureComponent {
       <div className="recipepage wrapper">
         <header>
           <Title content={ title } />
-          <p className="author">By: { author.name }</p>
+          <p className="author">Geschreven door: { author.name }</p>
         </header>
 
         <main>

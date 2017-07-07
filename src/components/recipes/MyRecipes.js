@@ -8,7 +8,7 @@ import subscribeToRecipesService from '../../actions/recipes/subscribe'
 import Search from './Search'
 import DropDowns from './DropDowns'
 import CreateRecipeButton from './CreateRecipeButton'
-import GoToMyRecipesButton from './GoToMyRecipesButton'
+import Title from '../Title'
 
 
 export class RecipesContainer extends PureComponent {
@@ -23,13 +23,20 @@ export class RecipesContainer extends PureComponent {
   }
 
   renderRecipe(recipe, index) {
-    return <RecipeItem key={index} { ...recipe }  />
+    return <RecipeItem key={index} { ...recipe } />
   }
 
+
 render() {
+  const {recipes} = this.props
+  const myRecipes = recipes.filter((recipe) => recipe.authorId === this.props.params.currentUserId)
+
   return(
       <div className="recipes wrapper">
         <header className="header">
+        <div className="title">
+          <Title content="Jouw Recepten" />
+          </div>
           <div className="search">
             <Search />
           </div>
@@ -43,13 +50,9 @@ render() {
           <CreateRecipeButton />
         </div>
 
-        <div>
-          <GoToMyRecipesButton />
-        </div>
-
         <main>
           <div className="recipes">
-            { this.props.recipes.map(this.renderRecipe.bind(this)) }
+            { myRecipes.map(this.renderRecipe.bind(this)) }
           </div>
         </main>
       </div>
