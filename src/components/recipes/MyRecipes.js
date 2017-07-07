@@ -8,7 +8,9 @@ import subscribeToRecipesService from '../../actions/recipes/subscribe'
 import Search from './Search'
 import DropDowns from './DropDowns'
 import CreateRecipeButton from './CreateRecipeButton'
-import Title from '../Title'
+import banner from "./pexels-photo-cropped.jpg"
+import Title from "../Title"
+import "./MyRecipes.css"
 
 
 export class RecipesContainer extends PureComponent {
@@ -34,12 +36,19 @@ render() {
   return(
       <div className="recipes wrapper">
         <header className="header">
-        <div className="title">
-          <Title content="Jouw Recepten" />
+
+          <div className="image">
+            <img src={ banner } className="banner" alt="Pen-Pineapple-Apple-Pen"/>
           </div>
+
           <div className="search">
             <Search />
           </div>
+
+          <div className="title">
+            <Title content="Jouw Recepten"/>
+          </div>
+
         </header>
 
         <div className="dropdowns">
