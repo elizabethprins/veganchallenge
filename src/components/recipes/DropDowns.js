@@ -33,7 +33,6 @@ class Search extends PureComponent {
     this.setState({values})
     const { query } = this.props.searchQuery
     const type = values
-    console.log("search", type)
     this.props.updateQuery({ type, query })
   }
 
@@ -42,7 +41,6 @@ class Search extends PureComponent {
   };
 
   render() {
-    const { type } = this.props.searchQuery
     const { values } = this.state
 
     return (

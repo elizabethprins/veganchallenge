@@ -1,9 +1,6 @@
 // src/recipes/RecipeEditor.js
 import React, { PureComponent } from 'react'
-import Editor from 'react-medium-editor'
 import toMarkdown from 'to-markdown'
-import SelectField from 'material-ui/SelectField'
-import MenuItem from 'material-ui/MenuItem'
 import FlatButton from 'material-ui/FlatButton'
 import { connect } from 'react-redux'
 import { replace } from 'react-router-redux'
@@ -92,7 +89,7 @@ class CookbookEditor extends PureComponent {
 
 
   render() {
-    const { errors, values } = this.state
+    const { errors } = this.state
 
     return (
       <div className="cookbookEditor">

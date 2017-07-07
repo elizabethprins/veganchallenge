@@ -22,7 +22,6 @@ ReactDOM.render(
       <Route path="/" component={App}>
         <IndexRoute component={RecipesContainer} />
         <Route path="/recepten/:recipeId" component={RecipePage} />
-        <Route path="/cookBook" />
         <Route path="/nieuw-recept" component={RecipeEditor} />
         <Route path="/mijn-recepten/:currentUserId" component={MyRecipes} />
         <Route path="/kookboeken" component={CookbooksContainer} />
