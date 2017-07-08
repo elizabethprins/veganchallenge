@@ -45,15 +45,15 @@ export class RecipeItem extends PureComponent {
       this.props.toggleLike(_id, liked)
     }
 
-  addRecipeToCookBook(id) {
+  addRecipeToCookbook(id) {
     console.log(this.props)
     const { cookbookId } = this.props
-    const cookBookId = id
-    cookbookId.push(cookBookId)
+    // const cookbookId = id
+    cookbookId.push(cookbookId)
   }
 
   render() {
-    const { _id, title, picture, liked, likedBy, cookBooks } = this.props
+    const { _id, title, picture, liked, likedBy, cookbooks } = this.props
 
     const actions = [
      <FlatButton
@@ -90,12 +90,12 @@ export class RecipeItem extends PureComponent {
                 open={this.state.open}
                 onRequestClose={this.handleClose}
               >
-              {cookBooks.map(function(cookBook) {
+              {cookbooks.map(function(cookbook) {
                 return <Checkbox
                   checkedIcon={<ActionFavorite />}
                   uncheckedIcon={<ActionFavoriteBorder />}
-                  label={cookBook.bookTitle}
-                  onCheck={() => this.addRecipeToCookBook(cookBook._id)}
+                  label={cookbook.bookTitle}
+                  onCheck={() => this.addRecipeToCookbook(cookbook._id)}
                 />
               }.bind(this))}
               </Dialog>

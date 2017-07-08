@@ -28,7 +28,7 @@ export class RecipesContainer extends PureComponent {
   }
 
   renderRecipe(recipe, index) {
-    return <RecipeItem key={index} { ...recipe } cookBooks={this.props.cookbooks} />
+    return <RecipeItem key={index} { ...recipe } cookbooks={this.props.cookbooks} />
   }
 
 render() {
