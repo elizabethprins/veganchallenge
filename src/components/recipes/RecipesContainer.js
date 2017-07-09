@@ -50,8 +50,6 @@ render() {
         </div>
 
         <div>
-          <CreateRecipeButton />
-          <GoToMyRecipesButton />
         </div>
 
         <main>

@@ -31,10 +31,10 @@ export class MyRecipeItem extends PureComponent {
     return(
       <article className="recipe">
         <Link to={`/recepten/${_id}`}>
-        <h5> { title } </h5>
           <div className="cover"
           style={{ backgroundImage: `url(${picture || PLACEHOLDER })` }} />
         </Link>
+        <h4> { title } </h4>
         <div className="details">
           <LikeButton
             liked={liked}
