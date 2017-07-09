@@ -63,7 +63,7 @@ class Navigation extends PureComponent {
         iconElementLeft={<IconButton onClick={this.goHome}><img className="heart" alt="liked" src={ HeartRed } /></IconButton>}
         iconElementRight={signedIn ?
           <div>
-          <RaisedButton primary={true} icon={<Recipe/>} label="Mijn Recepten" onClick={this.goHome} />
+          <GoToMyRecipesButton />
           <FlatButton primary={false} icon={<Book/>} label="Kookboeken" onClick={this.cookbooks} />
           <FlatButton label="Uitloggen" onClick={signOut} />
           </div>

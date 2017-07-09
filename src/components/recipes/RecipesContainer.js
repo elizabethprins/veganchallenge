@@ -49,7 +49,7 @@ render() {
         </div>
 
         <div>
-          <GoToMyRecipesButton />
+        
         </div>
 
         <main>

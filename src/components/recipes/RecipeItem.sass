@@ -2,25 +2,31 @@ main
   margin-top: .4em
 
 article.recipe:hover
-  box-shadow: 0 1px 6px rgba(0,0,0,.117647),0 1px 4px rgba(0,0,0,.117647)
+
 
 article.recipe
   margin: .4em 1em
   background-color: #fff
   width: 400px
-  padding: .8em
+  box-shadow: 0 1px 6px rgba(0,0,0,.117647),0 1px 4px rgba(0,0,0,.117647)
+  // padding: .8em
   border-radius: .5em
 
   .cover
     height: 250px
     background-size: cover
     background-position: center
-    border-radius: .5em
+    border-top-left-radius: .5em
+    border-top-right-radius: .5em
 
     img
       -moz-transition: all 0.3s
       -webkit-transition: all 0.3s
       transition: all 0.3s
+
+  h4
+    margin: 10px
+
 
     // img:hover
     //     -moz-transform: scale(1.3)
@@ -28,8 +34,9 @@ article.recipe
     //     transform: scale(1.3)
 
 
-
   .details
     display: flex
     justify-content: space-between
-    margin-bottom: -20px
+    margin-left: 5px
+    margin-right: 5px
+    margin-bottom: -15px
