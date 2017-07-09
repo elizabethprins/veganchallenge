@@ -15,9 +15,9 @@ export class CookbooksContainer extends PureComponent {
   constructor(props) {
     super()
 
-    this.state = { addCookBook: false }
+    this.state = { addCookbook: false }
 
-    this.handleAddCookBookClose = this.handleAddCookBookClose.bind(this)
+    this.handleAddCookbookClose = this.handleAddCookbookClose.bind(this)
   }
 
   static propTypes = {
@@ -30,22 +30,16 @@ export class CookbooksContainer extends PureComponent {
     this.props.subscribeToCookbooksService()
   }
 
-  componentDidMount(){
-    if (!this.props.signedIn){
-      this.props.router.push('/sign-in')
-    }
-  }
-
   renderCookbook(cookbook, index) {
     return <CookbookItem key={index} { ...cookbook }  />
   }
 
-  handleAddCookBookOpen() {
-    this.setState({ addCookBook: true })
+  handleAddCookbookOpen() {
+    this.setState({ addCookbook: true })
   }
 
-  handleAddCookBookClose() {
-    this.setState({ addCookBook: false })
+  handleAddCookbookClose() {
+    this.setState({ addCookbook: false })
   }
 
   render() {
@@ -53,14 +47,14 @@ export class CookbooksContainer extends PureComponent {
       <div className="cookbooks wrapper">
         <header className="header">
           <RaisedButton label="Nieuw kookboek" primary={true}
-          icon={<Plus />} onTouchTap={this.handleAddCookBookOpen.bind(this)} />
+          icon={<Plus />} onTouchTap={this.handleAddCookbookOpen.bind(this)} />
             <Dialog
               title="Maak een nieuw kookboek"
               modal={false}
-              open={this.state.addCookBook}
-              onRequestClose={this.handleAddCookBookClose.bind(this)}
+              open={this.state.addCookbook}
+              onRequestClose={this.handleAddCookbookClose.bind(this)}
             >
-              <CookbookEditor handleAddCookBookClose={this.handleAddCookBookClose}/>
+              <CookbookEditor handleAddCookbookClose={this.handleAddCookbookClose}/>
             </Dialog>
         </header>
 

@@ -16,9 +16,6 @@ class GoToMyRecipesButton extends PureComponent {
 
     if (!this.props.signedIn) return null
 
-    console.log("currentUser", currentUser)
-    console.log("props!", this.props)
-
     return (
       <div className="GoToMyRecipesButton">
         <Link to={`/mijn-recepten/${currentUser._id}`}>

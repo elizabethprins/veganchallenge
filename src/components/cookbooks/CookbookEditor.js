@@ -64,7 +64,7 @@ class CookbookEditor extends PureComponent {
     return Object.keys(errors).length === 0
   }
 
-  handleSaveCookBook = () => {
+  handleSaveCookbook = () => {
     this.saveCookbook()
   }
 
@@ -84,7 +84,7 @@ class CookbookEditor extends PureComponent {
     if (this.validate(cookbook)) {
       this.props.createCookbook(cookbook)
     }
-    this.props.handleAddCookBookClose()
+    this.props.handleAddCookbookClose()
   }
 
 
@@ -116,7 +116,7 @@ class CookbookEditor extends PureComponent {
         { errors.summary && <p className="error">{ errors.summary }</p> }
 
         <div className="actions">
-          <FlatButton className="primary" label="Opslaan" onTouchTap={this.handleSaveCookBook} />
+          <FlatButton className="primary" label="Opslaan" onTouchTap={this.handleSaveCookbook} />
         </div>
       </div>
     )

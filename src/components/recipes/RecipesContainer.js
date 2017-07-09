@@ -10,6 +10,7 @@ import Search from './Search'
 import DropDowns from './DropDowns'
 import './RecipesContainer.css'
 import GoToMyRecipesButton from './GoToMyRecipesButton'
+import CreateRecipeButton from './CreateRecipeButton'
 import banner from "./pexels-photo-cropped.jpg"
 
 
@@ -28,7 +29,7 @@ export class RecipesContainer extends PureComponent {
   }
 
   renderRecipe(recipe, index) {
-    return <RecipeItem key={index} { ...recipe } cookBooks={this.props.cookbooks} />
+    return <RecipeItem key={index} { ...recipe } cookbooks={this.props.cookbooks} />
   }
 
 render() {
@@ -49,7 +50,8 @@ render() {
         </div>
 
         <div>
-        
+          <CreateRecipeButton />
+          <GoToMyRecipesButton />
         </div>
 
         <main>
