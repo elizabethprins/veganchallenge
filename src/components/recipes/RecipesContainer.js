@@ -51,9 +51,6 @@ render() {
 
         <div>
           <CreateRecipeButton />
-        </div>
-
-        <div>
           <GoToMyRecipesButton />
         </div>
 

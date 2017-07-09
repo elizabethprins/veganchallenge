@@ -77,6 +77,7 @@ export class RecipeItem extends PureComponent {
                 <div className="cover"
                 style={{ backgroundImage: `url(${picture || PLACEHOLDER })` }} />
               </Link>
+                <h4> { title } </h4>
             <div className="details">
               <LikeButton
                   liked={liked}

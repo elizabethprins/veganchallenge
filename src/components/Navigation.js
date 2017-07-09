@@ -59,17 +59,17 @@ class Navigation extends PureComponent {
 
     return (
       <AppBar
-        title="Veganisme.org"
+        title="veganisme.org"
         iconElementLeft={<IconButton onClick={this.goHome}><img className="heart" alt="liked" src={ PaprikaFull } /></IconButton>}
         iconElementRight={signedIn ?
           <div>
-
-          <RaisedButton primary={true} icon={<Book/>} label="Kookboeken" onClick={this.cookbooks} />
+          <GoToMyRecipesButton />
+          <FlatButton primary={false} icon={<Book/>} label="Kookboeken" onClick={this.cookbooks} />
           <FlatButton label="Uitloggen" onClick={signOut} />
           </div>
           :
           <div>
-          <RaisedButton primary={true} icon={<Book/>} label="Kookboeken" onClick={this.cookbooks} />
+          <FlatButton primary={false} icon={<Book/>} label="Kookboeken" onClick={this.cookbooks} />
           <FlatButton label="Registreren" onClick={this.signUp} />
           <FlatButton label="Inloggen" onClick={this.signIn} />
           </div>
