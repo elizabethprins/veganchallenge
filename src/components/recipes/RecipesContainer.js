@@ -10,6 +10,7 @@ import Search from './Search'
 import DropDowns from './DropDowns'
 import './RecipesContainer.css'
 import GoToMyRecipesButton from './GoToMyRecipesButton'
+import CreateRecipeButton from './CreateRecipeButton'
 import banner from "./pexels-photo-cropped.jpg"
 
 
@@ -46,6 +47,10 @@ render() {
 
         <div className="dropdowns">
           <DropDowns />
+        </div>
+
+        <div>
+          <CreateRecipeButton />
         </div>
 
         <div>

@@ -72,8 +72,8 @@ export class RecipeItem extends PureComponent {
     return(
       <main>
         <article className="recipe">
-              <h5> { title } </h5>
               <Link to={`/recepten/${_id}`}>
+              <h5> { title } </h5>
                 <div className="cover"
                 style={{ backgroundImage: `url(${picture || PLACEHOLDER })` }} />
               </Link>
@@ -84,7 +84,7 @@ export class RecipeItem extends PureComponent {
                   onChange={this.toggleLike.bind(this)} />
               <IconButton onTouchTap={this.handleOpen}><img className="cBook" alt="liked" src={ cBook } /></IconButton>
               <Dialog
-                title="Dialog With Actions"
+                title="Dit recept aan een kookboek toevoegen"
                 actions={actions}
                 modal={false}
                 open={this.state.open}

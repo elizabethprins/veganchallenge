@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
 import RaisedButton from 'material-ui/RaisedButton'
-import Recipe from 'material-ui/svg-icons/action/receipt'
+import RecipeIcon from 'material-ui/svg-icons/communication/import-contacts'
 import './CreateRecipeButton.css'
 
 class GoToMyRecipesButton extends PureComponent {
@@ -16,16 +16,13 @@ class GoToMyRecipesButton extends PureComponent {
 
     if (!this.props.signedIn) return null
 
-    console.log("currentUser", currentUser)
-    console.log("props!", this.props)
-
     return (
       <div className="CreateRecipeButton">
         <Link to={`/mijn-recepten/${currentUser._id}`}>
           <RaisedButton
             label="Mijn Recepten"
             primary={true}
-            icon={<Recipe />} />
+            icon={<RecipeIcon />} />
         </Link>
       </div>
     )

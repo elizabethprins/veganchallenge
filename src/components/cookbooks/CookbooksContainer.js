@@ -30,12 +30,6 @@ export class CookbooksContainer extends PureComponent {
     this.props.subscribeToCookbooksService()
   }
 
-  componentDidMount(){
-    if (!this.props.signedIn){
-      this.props.router.push('/sign-in')
-    }
-  }
-
   renderCookbook(cookbook, index) {
     return <CookbookItem key={index} { ...cookbook }  />
   }

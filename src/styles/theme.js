@@ -18,7 +18,7 @@ export const grey30       = '#68805D'
 
 // Palette
 export const palette = {
-  primary1Color: deepgreen,
+  primary1Color: white,
   primary2Color: grey,
   primary3Color: grey50,
   accent1Color: grey30,
