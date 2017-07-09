@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import RecipeItem from './RecipeItem'
+import MyRecipeItem from './MyRecipeItem'
 import './RecipesContainer.css'
 import fetchRecipes from '../../actions/recipes/fetch'
 import subscribeToRecipesService from '../../actions/recipes/subscribe'
@@ -22,8 +22,8 @@ export class RecipesContainer extends PureComponent {
     this.props.subscribeToRecipesService()
   }
 
-  renderRecipe(recipe, index) {
-    return <RecipeItem key={index} { ...recipe } />
+  renderMyRecipes(recipe, index) {
+    return <MyRecipeItem key={index} { ...recipe } />
   }
 
 
@@ -52,7 +52,7 @@ render() {
 
         <main>
           <div className="recipes">
-            { myRecipes.map(this.renderRecipe.bind(this)) }
+            { myRecipes.map(this.renderMyRecipes.bind(this)) }
           </div>
         </main>
       </div>

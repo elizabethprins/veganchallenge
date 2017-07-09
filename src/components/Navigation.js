@@ -10,7 +10,7 @@ import FlatButton from 'material-ui/FlatButton'
 import RaisedButton from 'material-ui/RaisedButton'
 import Book from 'material-ui/svg-icons/communication/import-contacts'
 import Recipe from 'material-ui/svg-icons/action/receipt'
-import HeartRed from '../images/paprika_full.svg'
+import PaprikaFull from '../images/paprika_full.svg'
 import GoToMyRecipesButton from './recipes/GoToMyRecipesButton'
 
 class Navigation extends PureComponent {
@@ -60,10 +60,10 @@ class Navigation extends PureComponent {
     return (
       <AppBar
         title="Veganisme.org"
-        iconElementLeft={<IconButton onClick={this.goHome}><img className="heart" alt="liked" src={ HeartRed } /></IconButton>}
+        iconElementLeft={<IconButton onClick={this.goHome}><img className="heart" alt="liked" src={ PaprikaFull } /></IconButton>}
         iconElementRight={signedIn ?
           <div>
-    
+
           <RaisedButton primary={true} icon={<Book/>} label="Kookboeken" onClick={this.cookbooks} />
           <FlatButton label="Uitloggen" onClick={signOut} />
           </div>

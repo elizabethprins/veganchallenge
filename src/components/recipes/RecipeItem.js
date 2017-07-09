@@ -45,15 +45,15 @@ export class RecipeItem extends PureComponent {
       this.props.toggleLike(_id, liked)
     }
 
-  addRecipeToCookBook(id) {
+  addRecipeToCookbook(id) {
     console.log(this.props)
     const { cookbookId } = this.props
-    const cookBookId = id
-    cookbookId.push(cookBookId)
+    // const cookbookId = id
+    cookbookId.push(cookbookId)
   }
 
   render() {
-    const { _id, title, picture, liked, likedBy, cookBooks } = this.props
+    const { _id, title, picture, liked, likedBy, cookbooks } = this.props
 
     const actions = [
      <FlatButton
@@ -72,8 +72,8 @@ export class RecipeItem extends PureComponent {
     return(
       <main>
         <article className="recipe">
-              <h5> { title } </h5>
               <Link to={`/recepten/${_id}`}>
+              <h5> { title } </h5>
                 <div className="cover"
                 style={{ backgroundImage: `url(${picture || PLACEHOLDER })` }} />
               </Link>
@@ -84,18 +84,18 @@ export class RecipeItem extends PureComponent {
                   onChange={this.toggleLike.bind(this)} />
               <IconButton onTouchTap={this.handleOpen}><img className="cBook" alt="liked" src={ cBook } /></IconButton>
               <Dialog
-                title="Dialog With Actions"
+                title="Dit recept aan een kookboek toevoegen"
                 actions={actions}
                 modal={false}
                 open={this.state.open}
                 onRequestClose={this.handleClose}
               >
-              {cookBooks.map(function(cookBook) {
+              {cookbooks.map(function(cookbook) {
                 return <Checkbox
                   checkedIcon={<ActionFavorite />}
                   uncheckedIcon={<ActionFavoriteBorder />}
-                  label={cookBook.bookTitle}
-                  onCheck={() => this.addRecipeToCookBook(cookBook._id)}
+                  label={cookbook.bookTitle}
+                  onCheck={() => this.addRecipeToCookbook(cookbook._id)}
                 />
               }.bind(this))}
               </Dialog>
