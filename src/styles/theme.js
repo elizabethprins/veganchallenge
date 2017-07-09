@@ -14,18 +14,19 @@ export const black        = '#343434'
 export const darkGrey     = '#757575'
 export const grey         = '#F8F9FB'
 export const grey50       = 'rgba(222, 222, 222, 0.5)'
-export const grey30       = '#68805D'
+export const grey30      = 'rgba(222, 222, 222, 0.3)'
+export const grey70      = 'rgba(222, 222, 222, 0.7)'
 
 // Palette
 export const palette = {
-  primary1Color: deepgreen,
+  primary1Color: white,
   primary2Color: grey,
-  primary3Color: grey50,
-  accent1Color: grey30,
+  primary3Color: darkGrey,
+  accent1Color: grey70,
   textColor: black,
   alternateTextColor: black,
   canvasColor: white,
-  borderColor: deepgreen,
+  borderColor: black,
   disabledColor: black
 }
 

@@ -16,6 +16,7 @@ const dialogStyle = {
 
 const buttonStyle = {
   float: 'right',
+  marginTop: '1rem',
   marginLeft: '2rem',
 }
 
@@ -58,7 +59,7 @@ export class SignUp extends PureComponent {
     }
 
     this.setState({
-      nameError: 'Please provide your name'
+      nameError: 'Vul je naam in'
     })
     return false
   }
@@ -75,13 +76,13 @@ export class SignUp extends PureComponent {
 
     if (email.value === '') {
       this.setState({
-        emailError: 'Please provide your email address'
+        emailError: 'Vul je e-mailadres in'
       })
       return false
     }
 
     this.setState({
-      emailError: 'Please provide a valid email address'
+      emailError: 'Vul een geldig e-mailadres in'
     })
     return false
   }
@@ -91,7 +92,7 @@ export class SignUp extends PureComponent {
 
     if (password.getValue().length < 6) {
       this.setState({
-        passwordError: 'Password is too short'
+        passwordError: 'Wachtwoord is te kort'
       })
       return false
     }
@@ -104,7 +105,7 @@ export class SignUp extends PureComponent {
     }
 
     this.setState({
-      passwordError: 'Password should contain both letters and numbers'
+      passwordError: 'Wachtwoord moet zowel letters als cijfers bevatten'
     })
     return false
   }
@@ -120,7 +121,7 @@ export class SignUp extends PureComponent {
     }
 
     this.setState({
-      passwordConfirmationError: 'Passwords do not match'
+      passwordConfirmationError: 'Wachtwoorden zijn niet gelijk'
     })
     return false
   }
@@ -132,22 +133,22 @@ export class SignUp extends PureComponent {
 
         <form onSubmit={this.submitForm.bind(this)}>
           <div className="input">
-            <TextField ref="name" type="text" hintText="Your name"
+            <TextField ref="name" type="text" hintText="Je naam"
               onChange={this.validateName.bind(this)}
               errorText={ this.state.nameError} />
           </div>
           <div className="input">
-            <TextField ref="email" type="email" hintText="Email address"
+            <TextField ref="email" type="email" hintText="E-mailadres"
               onChange={this.validateEmail.bind(this)}
               errorText={ this.state.emailError} />
           </div>
           <div className="input">
-            <TextField ref="password" type="password" hintText="Password"
+            <TextField ref="password" type="password" hintText="Wachtwoord"
               onChange={this.validatePassword.bind(this)}
               errorText={ this.state.passwordError} />
           </div>
           <div className="input">
-            <TextField ref="passwordConfirmation" type="password" hintText="Repeat Password"
+            <TextField ref="passwordConfirmation" type="password" hintText="Herhaal wachtwoord"
               onKeyUp={this.validatePasswordConfirmation.bind(this)}
               onChange={this.validatePasswordConfirmation.bind(this)}
               errorText={ this.state.passwordConfirmationError} />
