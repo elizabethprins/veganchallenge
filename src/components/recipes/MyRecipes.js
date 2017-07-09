@@ -35,7 +35,7 @@ render() {
       <div className="recipes wrapper">
         <header className="header">
         <div className="title">
-          <Title content="Jouw Recepten" />
+          <Title content="Jouw Recepten" level={2} />
           </div>
           <div className="search">
             <Search />
