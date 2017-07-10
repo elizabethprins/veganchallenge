@@ -67,7 +67,7 @@ export class MyKitchen extends PureComponent {
 
 
 render() {
-
+  console.log(this.props)
   const { recipes } = this.props
   const { cookbooks } = this.props
   const me = this.props.params.currentUserId
