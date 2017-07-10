@@ -81,7 +81,7 @@ render() {
       <div className="recipes wrapper">
         <header className="header">
         <div className="title">
-          <Title content="Jouw Keuken" />
+          <Title content="Jouw Keuken" level={2} />
           </div>
           <div className="search">
             <Search />
@@ -116,21 +116,21 @@ render() {
 
         <main>
           <div className="recipes">
-          <Title content="Jouw Recepten" />
+          <Title content="Jouw Recepten"  level={2}  />
             { myRecipes.map(this.renderMyRecipes.bind(this)) }
           </div>
 
           <hr />
 
           <div className="recipes">
-          <Title content="Jouw Kookboeken" />
+          <Title content="Jouw Kookboeken"  level={2} />
             { myCookbooks.map(this.renderMyCookbooks.bind(this)) }
           </div>
 
           <hr />
 
           <div className="recipes">
-          <Title content="Jouw Favorieten" />
+          <Title content="Jouw Favorieten"  level={2} />
             { myFavorites.map(this.renderMyRecipes.bind(this)) }
           </div>
 
