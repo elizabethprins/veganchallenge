@@ -81,12 +81,12 @@ render() {
         <div className="title">
           <Title content="Mijn Keuken" level={2} />
           </div>
-          <div className="search">
-            <Search />
-          </div>
         </header>
 
         <main>
+        <div className="search">
+          <Search />
+        </div>
 
         <div className="create-buttons">
           <RaisedButton label="Nieuw recept" primary={true}
