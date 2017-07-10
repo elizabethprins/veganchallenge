@@ -67,9 +67,10 @@ console.log(this.state)
     const { _id, title, picture, liked, likedBy, cookbooks } = this.props
     const { activeCheckboxes } =this.state
     const {currentUser} = this.props
-    console.log("currentUser?", this.props.params.currentUserId)
+    console.log("currentUser?", this.props.currentUser._id)
 
-    console.log("this state", this.state)
+    const myCookbooks = cookbooks.filter((cookbook) => (cookbook.creatorId === this.props.currentUser._id))
+      console.log("myCookbooks", myCookbooks)
 
     const actions = [
      <FlatButton
@@ -106,7 +107,7 @@ console.log(this.state)
                 open={this.state.open}
                 onRequestClose={this.handleClose}
               >
-              {cookbooks.map(function(cookbook) {
+              {myCookbooks.map(function(cookbook) {
                 return <Checkbox
                   checkedIcon={<ActionFavorite />}
                   uncheckedIcon={<ActionFavoriteBorder />}

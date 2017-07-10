@@ -95,6 +95,7 @@ render() {
               modal={false}
               open={this.state.addRecipe}
               onRequestClose={this.handleAddRecipeClose.bind(this)}
+              autoScrollBodyContent={true}
             >
               <RecipeEditor handleAddRecipeClose={this.handleAddRecipeClose}/>
             </Dialog>
