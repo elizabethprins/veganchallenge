@@ -6,6 +6,7 @@ import { Link } from 'react-router'
 import LikeButton from '../../components/LikeButton'
 import FlatButton from 'material-ui/FlatButton'
 import toggleLike from '../../actions/recipes/toggleLike'
+import addToRecipe from '../../actions/cookbooks/add-recipe'
 // import cBook from 'material-ui/svg-icons/action/alarm'
 import cBook from '../../images/food.svg'
 import IconButton from 'material-ui/IconButton'
@@ -20,16 +21,16 @@ const PLACEHOLDER = 'http://via.placeholder.com/500x180?text=No%20Image'
 export class RecipeItem extends PureComponent {
   state = {
       open: false,
-    };
+      activeCheckboxes: []
+    }
 
-    handleOpen = () => {
-      this.setState({open: true});
-    };
+  handleOpen = () => {
+    this.setState({open: true})
+  }
 
-    handleClose = () => {
-      this.setState({open: false});
-      console.log(this.props.cookbookId)
-    };
+  handleClose = () => {
+    this.setState({open: false})
+  }
 
   static propTypes = {
     liked: PropTypes.bool,
@@ -46,10 +47,20 @@ export class RecipeItem extends PureComponent {
     }
 
   addRecipeToCookbook(id) {
-    console.log(this.props)
-    const { cookbookId } = this.props
-    // const cookbookId = id
-    cookbookId.push(cookbookId)
+    let found = this.state.activeCheckboxes.includes(id)
+    if (found) {
+      this.setState({
+        activeCheckboxes: this.state.activeCheckboxes.filter(x => x !== id)
+      })
+    } else {
+      this.setState({
+        activeCheckboxes: [ ...this.state.activeCheckboxes, id ]
+      })
+    }
+console.log(this.state)
+    const cookbook = id
+    const { _id } = this.props
+    this.props.addToRecipe(_id, cookbook)
   }
 
   render() {
@@ -58,12 +69,12 @@ export class RecipeItem extends PureComponent {
     const actions = [
      <FlatButton
        label="Annuleren"
-       primary={true}
+       primary={false}
        onTouchTap={this.handleClose}
      />,
      <FlatButton
        label="Toevoegen"
-       primary={true}
+       primary={false}
        keyboardFocused={true}
        onTouchTap={this.handleClose}
      />,
@@ -96,6 +107,7 @@ export class RecipeItem extends PureComponent {
                   uncheckedIcon={<ActionFavoriteBorder />}
                   label={cookbook.bookTitle}
                   onCheck={() => this.addRecipeToCookbook(cookbook._id)}
+                  checked={this.state.activeCheckboxes.includes(cookbook._id)}
                 />
               }.bind(this))}
               </Dialog>
@@ -110,4 +122,4 @@ const mapStateToProps = ({ currentUser }, { likedBy }) => ({
   liked: !!currentUser && likedBy.includes(currentUser._id),
 })
 
-export default connect(mapStateToProps, { toggleLike })(RecipeItem)
+export default connect(mapStateToProps, { toggleLike, addToRecipe })(RecipeItem)

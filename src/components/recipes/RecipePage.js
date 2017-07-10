@@ -89,7 +89,7 @@ export class RecipePage extends PureComponent {
               <ReactMarkdown source={description} />
               <p><strong>Bereiding</strong></p>
               <ReactMarkdown source={cookingSteps} />
-              <p>Voor <b id="persons">{persons}</b>{`${persons > 1 ? ' personen' : ' persoon'}`}:</p>
+              <p>Aantal personen: <b id="persons">{persons}</b></p>
               <RaisedButton primary={true} icon={<Minus/>} onClick={removeOnePerson}/><RaisedButton primary={true} icon={<Plus/>} onClick={addOnePerson}/>
               <ul>
                 {ingredients.map((ingredient, i) => {
