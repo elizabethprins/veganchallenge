@@ -3,10 +3,9 @@
   &:focus
     outline: none
 
-.editor
+.recipeEditor
   display: flex
   flex-direction: column
-  width: 100%
   border-radius: .1em
   box-shadow: 0 1px 6px rgba(0, 0, 0, 0.117647), 0 1px 4px rgba(0, 0, 0, 0.117647)
   background-color: #fff
@@ -17,16 +16,20 @@
     color: red
 
   .title,
-  .photo
-    font-size: 1.2em
-    border: none
+  .description,
+  .picture,
+  .persons,
+  .amount,
+  .measure,
+  .ingredient
+    font-size: 1em
     margin-bottom: 0.5em
 
     &:focus
       outline: none
 
   .title
-    font-size: 2em
+    font-size: 1.5em
 
   .actions
     margin-top: 1em

@@ -9,9 +9,21 @@ import Search from './Search'
 import DropDowns from './DropDowns'
 import CreateRecipeButton from './CreateRecipeButton'
 import Title from '../Title'
+import RaisedButton from 'material-ui/RaisedButton'
+import Plus from 'material-ui/svg-icons/content/add'
+import RecipeEditor from './RecipeEditor'
+import Dialog from 'material-ui/Dialog'
+import './RecipeEditor.css'
 
+export class MyRecipes extends PureComponent {
+  constructor(props) {
+    super()
 
-export class RecipesContainer extends PureComponent {
+    this.state = { addRecipe: false }
+
+    this.handleAddRecipeClose = this.handleAddRecipeClose.bind(this)
+  }
+
   static propTypes = {
     recipes: PropTypes.array.isRequired,
     fetchRecipes: PropTypes.func.isRequired,
@@ -26,6 +38,13 @@ export class RecipesContainer extends PureComponent {
     return <MyRecipeItem key={index} { ...recipe } />
   }
 
+  handleAddRecipeOpen() {
+    this.setState({ addRecipe: true })
+  }
+
+  handleAddRecipeClose() {
+    this.setState({ addRecipe: false })
+  }
 
 render() {
   const {recipes} = this.props
@@ -34,8 +53,8 @@ render() {
   return(
       <div className="recipes wrapper">
         <header className="header">
-        <div className="title">
-          <Title content="Jouw Recepten" level={2} />
+          <div className="title">
+            <Title content="Jouw Recepten" level={2} />
           </div>
           <div className="search">
             <Search />
@@ -47,7 +66,16 @@ render() {
         </div>
 
         <div>
-          <CreateRecipeButton />
+          <RaisedButton label="Nieuw recept" primary={true}
+          icon={<Plus />} onTouchTap={this.handleAddRecipeOpen.bind(this)} />
+            <Dialog
+              title="Maak een nieuw recept"
+              modal={false}
+              open={this.state.addRecipe}
+              onRequestClose={this.handleAddRecipeClose.bind(this)}
+            >
+              <RecipeEditor handleAddRecipeClose={this.handleAddRecipeClose}/>
+            </Dialog>
         </div>
 
         <main>
@@ -64,4 +92,4 @@ const mapStateToProps = ({ recipes }) => ({ recipes })
 
 export default connect(mapStateToProps, {
   fetchRecipes, subscribeToRecipesService
-})(RecipesContainer)
+})(MyRecipes)

@@ -187,7 +187,7 @@ class RecipeEditor extends PureComponent {
     console.log("input:", input)
 
     return (
-      <div className="editor">
+      <div className="recipeEditor">
         <input
           type="text"
           ref="title"
@@ -201,6 +201,7 @@ class RecipeEditor extends PureComponent {
 
         <Editor
           ref="description"
+          className="description"
           options={{
             placeholder: {text: 'Beschrijf het gerecht...'}
           }}
@@ -211,6 +212,7 @@ class RecipeEditor extends PureComponent {
 
         <Editor
           ref="cookingSteps"
+          className="cookingSteps"
           options={{
             placeholder: {text: 'Beschrijf de bereidingswijze...'}
           }}
@@ -247,6 +249,7 @@ class RecipeEditor extends PureComponent {
               <input
                 type="number"
                 ref="amount"
+                className="amount"
                 placeholder="Hoeveelheid"
                 onChange={this.updateAmount.bind(this)}
                 onKeyDown={this.updateAmount.bind(this)} />
@@ -254,6 +257,7 @@ class RecipeEditor extends PureComponent {
               <input
                 type="text"
                 ref="measure"
+                className="measure"
                 placeholder="Eenheid (bijv. tl, ml, bosje etc.)"
                 onChange={this.updateMeasure.bind(this)}
                 onKeyDown={this.updateMeasure.bind(this)} />
@@ -261,6 +265,7 @@ class RecipeEditor extends PureComponent {
               <input
                 type="text"
                 ref="ingredient"
+                className="ingredient"
                 placeholder="Ingredient"
                 onChange={this.updateIngredient.bind(this)}
                 onKeyDown={this.updateIngredient.bind(this)} />
