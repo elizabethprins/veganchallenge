@@ -17,8 +17,10 @@ class CookbookItem extends PureComponent {
     return(
       <main>
         <article className="cookbook">
+          <Link to={`/kookboeken/${_id}`}>
           <div className="cover"
           style={{ backgroundImage: `url(http://www.iconsdb.com/icons/preview/black/book-xxl.png)` }} />
+          </Link>
           <h3> {bookTitle} </h3>
           <p> {summary} </p>
         </article>

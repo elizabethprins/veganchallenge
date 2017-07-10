@@ -45,21 +45,10 @@ export class CookbooksContainer extends PureComponent {
     return(
       <div className="cookbooks wrapper">
         <header className="header">
-          <RaisedButton label="Nieuw kookboek" primary={true}
-          icon={<Plus />} onTouchTap={this.handleAddCookbookOpen.bind(this)} />
-            <Dialog
-              title="Maak een nieuw kookboek"
-              modal={false}
-              open={this.state.addCookbook}
-              onRequestClose={this.handleAddCookbookClose.bind(this)}
-            >
-              <CookbookEditor handleAddCookbookClose={this.handleAddCookbookClose}/>
-            </Dialog>
         </header>
 
         <main>
           <div>
-
           </div>
           <div className="cookbooks">
             { this.props.cookbooks.map(this.renderCookbook.bind(this)) }
