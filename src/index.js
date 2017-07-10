@@ -14,6 +14,7 @@ import SignUp from './components/users/SignUp'
 import SignIn from './components/users/SignIn'
 import RecipeEditor from './components/recipes/RecipeEditor'
 import CookbookEditor from './components/cookbooks/CookbookEditor'
+import CookbookPage from './components/cookbooks/CookbookPage'
 import './index.css'
 
 ReactDOM.render(
@@ -25,6 +26,7 @@ ReactDOM.render(
         <Route path="/nieuw-recept" component={RecipeEditor} />
         <Route path="/mijn-recepten/:currentUserId" component={MyRecipes} />
         <Route path="/kookboeken" component={CookbooksContainer} />
+        <Route path="/kookboeken/:cookbookId" component={CookbookPage} />
         <Route path="/nieuw-kookboek" component={CookbookEditor} />
         <Route path="/inloggen" component={SignIn} />
         <Route path="/registreren" component={SignUp} />
