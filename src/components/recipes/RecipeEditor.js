@@ -28,7 +28,7 @@ class RecipeEditor extends PureComponent {
       description,
       cookingSteps,
       ingredients: [],
-      amount,
+      amount: [],
       measure,
       ingredient,
       tip,
@@ -79,16 +79,12 @@ class RecipeEditor extends PureComponent {
     this.setState({ persons: this.refs.persons.value })
   }
 
-  updateAmount(event) {
-    this.setState({ amount: this.refs.amount.value})
-  }
-
-  updateMeasure(event) {
-    this.setState({ measure: this.refs.measure.value})
-  }
-
-  updateIngredient(event) {
-    this.setState({ ingredient: this.refs.ingredient.value})
+  updateIngredient(i) {
+    const { ingredients } = this.state
+    let a = `amount${i.toString()}`
+    let m = `measure${i.toString()}`
+    let j = `ingredient${i.toString()}`
+    ingredients[i] = {amount: this.refs[a].value, measure: this.refs[m].value, ingredient: this.refs[j].value}
   }
 
   addInputField() {
@@ -96,22 +92,6 @@ class RecipeEditor extends PureComponent {
     this.setState({input: this.state.input.concat(newInputField)}, function() {
       return;
     })
-    console.log(this.state.input)
-    console.log(this.state.input.length)
-    this.updateAllIngredients()
-  }
-
-  updateAllIngredients() {
-    var newIngredient = {
-      ingredient: this.state.ingredient,
-      measure: this.state.measure,
-      amount: this.state.amount
-    }
-    this.setState({ingredients: this.state.ingredients.concat(newIngredient)},function() {
-      return;
-    })
-    console.log(this.state.ingredients)
-    console.log(this.state.ingredients.length)
   }
 
   setType(event, index, values) {
@@ -139,10 +119,11 @@ class RecipeEditor extends PureComponent {
 
   saveRecipe() {
 
-    this.updateAllIngredients()
+    // this.updateAllIngredients()
 
     const { amount, measure, ingredient } = this.state
     const { ingredients } = this.state
+    console.log("hello", ingredients)
 
     const {
       title,
@@ -166,12 +147,9 @@ class RecipeEditor extends PureComponent {
       authorId,
       liked: false,
     }
-    console.log("ingredients:", ingredients)
-    console.log("amount, measure, ingredient:", amount, measure, ingredient)
 
     values.map((i) => {
       recipe[i] = true
-        console.log(i)
     })
 
     if (this.validate(recipe)) {
@@ -182,7 +160,6 @@ class RecipeEditor extends PureComponent {
 
   render() {
     const { errors, values, input } = this.state
-    console.log("input:", input)
 
     return (
       <div className="recipeEditor">
@@ -248,27 +225,24 @@ class RecipeEditor extends PureComponent {
             <div>
               <input
                 type="number"
-                ref="amount"
+                ref={`amount${i.toString()}`}
                 className="amount"
                 placeholder="Hoeveelheid"
-                onChange={this.updateAmount.bind(this)}
-                onKeyDown={this.updateAmount.bind(this)} />
+                onChange={() => this.updateIngredient(i)} />
 
               <input
                 type="text"
-                ref="measure"
+                ref={`measure${i.toString()}`}
                 className="measure"
                 placeholder="Eenheid (bijv. tl, ml, bosje etc.)"
-                onChange={this.updateMeasure.bind(this)}
-                onKeyDown={this.updateMeasure.bind(this)} />
+                onChange={() => this.updateIngredient(i)} />
 
               <input
                 type="text"
-                ref="ingredient"
+                ref={`ingredient${i.toString()}`}
                 className="ingredient"
                 placeholder="Ingredient"
-                onChange={this.updateIngredient.bind(this)}
-                onKeyDown={this.updateIngredient.bind(this)} />
+                onChange={() => this.updateIngredient(i)} />
             </div>
           )
         })}
