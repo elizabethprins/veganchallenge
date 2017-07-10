@@ -20,7 +20,7 @@ class GoToMyRecipesButton extends PureComponent {
       <div className="GoToMyRecipesButton">
         <Link to={`/mijn-recepten/${currentUser._id}`}>
           <RaisedButton
-            label="Mijn Recepten"
+            label="Mijn Keuken"
             primary={true}
             icon={<Recipe />} />
         </Link>

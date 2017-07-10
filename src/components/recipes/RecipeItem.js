@@ -58,12 +58,12 @@ export class RecipeItem extends PureComponent {
     const actions = [
      <FlatButton
        label="Annuleren"
-       primary={true}
+       primary={false}
        onTouchTap={this.handleClose}
      />,
      <FlatButton
        label="Toevoegen"
-       primary={true}
+       primary={false}
        keyboardFocused={true}
        onTouchTap={this.handleClose}
      />,
