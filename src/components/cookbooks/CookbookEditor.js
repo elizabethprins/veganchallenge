@@ -1,7 +1,7 @@
-// src/recipes/RecipeEditor.js
 import React, { PureComponent } from 'react'
 import toMarkdown from 'to-markdown'
 import FlatButton from 'material-ui/FlatButton'
+import RaisedButton from 'material-ui/RaisedButton'
 import { connect } from 'react-redux'
 import { replace } from 'react-router-redux'
 import createCookbook from '../../actions/cookbooks/create'
@@ -116,7 +116,7 @@ class CookbookEditor extends PureComponent {
         { errors.summary && <p className="error">{ errors.summary }</p> }
 
         <div className="actions">
-          <FlatButton className="primary" label="Opslaan" onTouchTap={this.handleSaveCookbook} />
+          <FlatButton className="primary" label="Opslaan" onTouchTap={this.handleSaveCookbook}/>
         </div>
       </div>
     )

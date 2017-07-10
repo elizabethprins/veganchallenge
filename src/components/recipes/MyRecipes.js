@@ -13,6 +13,7 @@ import RaisedButton from 'material-ui/RaisedButton'
 import Plus from 'material-ui/svg-icons/content/add'
 import RecipeEditor from './RecipeEditor'
 import Dialog from 'material-ui/Dialog'
+import './RecipeEditor.css'
 
 export class MyRecipes extends PureComponent {
   constructor(props) {
