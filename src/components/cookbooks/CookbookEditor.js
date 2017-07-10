@@ -55,7 +55,6 @@ class CookbookEditor extends PureComponent {
     let errors = {}
 
      if (!bookTitle || bookTitle === '') errors.bookTitle = 'Je kookboek moet een titel hebben!'
-     if (!summary || summary === '') errors.summary = 'Beschrijf hier het gerecht.'
 
     this.setState({
       errors,
@@ -112,8 +111,6 @@ class CookbookEditor extends PureComponent {
           defaultValue={this.state.summary}
           onChange={this.updateSummary.bind(this)}
           onKeyDown={this.updateSummary.bind(this)} />
-
-        { errors.summary && <p className="error">{ errors.summary }</p> }
 
         <div className="actions">
           <FlatButton className="primary" label="Opslaan" onTouchTap={this.handleSaveCookbook}/>

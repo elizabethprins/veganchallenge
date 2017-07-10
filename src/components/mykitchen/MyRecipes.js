@@ -8,7 +8,6 @@ import CookbookItem from '../cookbooks/CookbookItem'
 import fetchCookbooks from '../../actions/cookbooks/fetch'
 import subscribeToCookbooksService from '../../actions/cookbooks/subscribe'
 import Search from '../recipes/Search'
-import DropDowns from '../recipes/DropDowns'
 import CreateRecipeButton from './CreateRecipeButton'
 import CreateCookbookButton from './CreateCookbookButton'
 import Dialog from 'material-ui/Dialog'
@@ -82,16 +81,12 @@ render() {
       <div className="recipes wrapper">
         <header className="header">
         <div className="title">
-          <Title content="Jouw Keuken" level = {2} />
+          <Title content="Jouw Keuken" />
           </div>
           <div className="search">
             <Search />
           </div>
         </header>
-
-        <div className="dropdowns">
-          <DropDowns />
-        </div>
 
         <div className="create-buttons">
 
