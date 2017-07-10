@@ -3,26 +3,24 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
 import RaisedButton from 'material-ui/RaisedButton'
-import Recipe from 'material-ui/svg-icons/action/receipt'
-import './GoToMyRecipesButton.css'
+import Plus from 'material-ui/svg-icons/content/add'
+import './CreateRecipeButton.css'
 
-class GoToMyRecipesButton extends PureComponent {
+class CreateCookbookButton extends PureComponent {
   static propTypes = {
     signedIn: PropTypes.bool,
   }
 
   render() {
-    const {currentUser} = this.props
-
     if (!this.props.signedIn) return null
 
     return (
-      <div className="GoToMyRecipesButton">
-        <Link to={`/mijn-recepten/${currentUser._id}`}>
+      <div className="CreateCookbookButton">
+        <Link to="/nieuw-kookboek">
           <RaisedButton
-            label="Mijn Keuken"
+            label="Nieuw Kookboek"
             primary={true}
-            icon={<Recipe />} />
+            icon={<Plus />} />
         </Link>
       </div>
     )
@@ -31,7 +29,6 @@ class GoToMyRecipesButton extends PureComponent {
 
 const mapStateToProps = ({ currentUser }) => ({
   signedIn: !!currentUser && !!currentUser._id,
-  currentUser
 })
 
-export default connect(mapStateToProps)(GoToMyRecipesButton)
+export default connect(mapStateToProps)(CreateCookbookButton)
