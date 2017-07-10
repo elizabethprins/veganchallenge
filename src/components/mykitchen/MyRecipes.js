@@ -8,8 +8,6 @@ import CookbookItem from '../cookbooks/CookbookItem'
 import fetchCookbooks from '../../actions/cookbooks/fetch'
 import subscribeToCookbooksService from '../../actions/cookbooks/subscribe'
 import Search from '../recipes/Search'
-import CreateRecipeButton from './CreateRecipeButton'
-import CreateCookbookButton from './CreateCookbookButton'
 import Dialog from 'material-ui/Dialog'
 import CookbookEditor from '../cookbooks/CookbookEditor'
 import RecipeEditor from '../recipes/RecipeEditor'
@@ -81,7 +79,7 @@ render() {
       <div className="recipes wrapper">
         <header className="header">
         <div className="title">
-          <Title content="Jouw Keuken" level={2} />
+          <Title content="Jouw Keuken" />
           </div>
           <div className="search">
             <Search />
@@ -97,6 +95,7 @@ render() {
               modal={false}
               open={this.state.addRecipe}
               onRequestClose={this.handleAddRecipeClose.bind(this)}
+              autoScrollBodyContent={true}
             >
               <RecipeEditor handleAddRecipeClose={this.handleAddRecipeClose}/>
             </Dialog>
@@ -116,21 +115,21 @@ render() {
 
         <main>
           <div className="recipes">
-          <Title content="Jouw Recepten"  level={2}  />
+          <Title content="Jouw Recepten" />
             { myRecipes.map(this.renderMyRecipes.bind(this)) }
           </div>
 
           <hr />
 
           <div className="recipes">
-          <Title content="Jouw Kookboeken"  level={2} />
+          <Title content="Jouw Kookboeken" />
             { myCookbooks.map(this.renderMyCookbooks.bind(this)) }
           </div>
 
           <hr />
 
           <div className="recipes">
-          <Title content="Jouw Favorieten"  level={2} />
+          <Title content="Jouw Favorieten" />
             { myFavorites.map(this.renderMyRecipes.bind(this)) }
           </div>
 

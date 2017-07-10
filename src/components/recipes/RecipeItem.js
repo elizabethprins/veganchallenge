@@ -65,6 +65,12 @@ console.log(this.state)
 
   render() {
     const { _id, title, picture, liked, likedBy, cookbooks } = this.props
+    const { activeCheckboxes } =this.state
+    const {currentUser} = this.props
+    console.log("currentUser?", this.props.currentUser._id)
+
+    const myCookbooks = cookbooks.filter((cookbook) => (cookbook.creatorId === this.props.currentUser._id))
+      console.log("myCookbooks", myCookbooks)
 
     const actions = [
      <FlatButton
@@ -101,7 +107,7 @@ console.log(this.state)
                 open={this.state.open}
                 onRequestClose={this.handleClose}
               >
-              {cookbooks.map(function(cookbook) {
+              {myCookbooks.map(function(cookbook) {
                 return <Checkbox
                   checkedIcon={<ActionFavorite />}
                   uncheckedIcon={<ActionFavoriteBorder />}
@@ -120,6 +126,7 @@ console.log(this.state)
 
 const mapStateToProps = ({ currentUser }, { likedBy }) => ({
   liked: !!currentUser && likedBy.includes(currentUser._id),
+  currentUser
 })
 
 export default connect(mapStateToProps, { toggleLike, addToRecipe })(RecipeItem)
