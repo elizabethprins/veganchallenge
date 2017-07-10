@@ -11,7 +11,7 @@ import RaisedButton from 'material-ui/RaisedButton'
 import Book from 'material-ui/svg-icons/communication/import-contacts'
 import Recipe from 'material-ui/svg-icons/action/receipt'
 import PaprikaFull from '../images/paprika_full.svg'
-import GoToMyRecipesButton from './recipes/GoToMyRecipesButton'
+import GoToMyRecipesButton from './mykitchen/GoToMyRecipesButton'
 
 class Navigation extends PureComponent {
   static propTypes = {

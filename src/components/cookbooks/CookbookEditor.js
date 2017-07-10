@@ -1,4 +1,4 @@
-// src/recipes/RecipeEditor.js
+// src/recipes/CookbookEditor.js
 import React, { PureComponent } from 'react'
 import toMarkdown from 'to-markdown'
 import FlatButton from 'material-ui/FlatButton'

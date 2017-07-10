@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 import ReactMarkdown from 'react-markdown'
 import LikeButton from '../../components/LikeButton'
 import toggleLike from '../../actions/recipes/toggleLike'
-import './RecipeItem.css'
+import '../recipes/RecipeItem.css'
 import { Link } from 'react-router'
 
 const PLACEHOLDER = 'http://via.placeholder.com/500x180?text=No%20Image'
@@ -31,10 +31,10 @@ export class MyRecipeItem extends PureComponent {
     return(
       <article className="recipe">
         <Link to={`/recepten/${_id}`}>
+        <h5> { title } </h5>
           <div className="cover"
           style={{ backgroundImage: `url(${picture || PLACEHOLDER })` }} />
         </Link>
-        <h4> { title } </h4>
         <div className="details">
           <LikeButton
             liked={liked}
