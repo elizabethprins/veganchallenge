@@ -9,6 +9,7 @@ import Dialog from 'material-ui/Dialog'
 import CookbookEditor from './CookbookEditor'
 import Plus from 'material-ui/svg-icons/content/add'
 import './CookbooksContainer.css'
+import Title from '../Title'
 
 export class CookbooksContainer extends PureComponent {
   constructor(props) {
@@ -43,17 +44,20 @@ export class CookbooksContainer extends PureComponent {
 
   render() {
     return(
-      <div className="cookbooks wrapper">
-        <header className="header">
-        </header>
+        <div className="cookbooks wrapper">
+          <header className="header">
+            <div className="title">
+              <Title content="Kookboeken" level={2} />
+            </div>
+          </header>
 
-        <main>
-          <div>
-          </div>
-          <div className="cookbooks">
-            { this.props.cookbooks.map(this.renderCookbook.bind(this)) }
-          </div>
-        </main>
+          <main>
+            <div>
+            </div>
+            <div className="cookbooks">
+              { this.props.cookbooks.map(this.renderCookbook.bind(this)) }
+            </div>
+          </main>
       </div>
     )
   }
