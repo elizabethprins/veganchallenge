@@ -65,6 +65,11 @@ console.log(this.state)
 
   render() {
     const { _id, title, picture, liked, likedBy, cookbooks } = this.props
+    const { activeCheckboxes } =this.state
+    const {currentUser} = this.props
+    console.log("currentUser?", this.props.params.currentUserId)
+
+    console.log("this state", this.state)
 
     const actions = [
      <FlatButton
@@ -120,6 +125,7 @@ console.log(this.state)
 
 const mapStateToProps = ({ currentUser }, { likedBy }) => ({
   liked: !!currentUser && likedBy.includes(currentUser._id),
+  currentUser
 })
 
 export default connect(mapStateToProps, { toggleLike, addToRecipe })(RecipeItem)

@@ -9,8 +9,6 @@ import subscribeToCookbooksService from '../../actions/cookbooks/subscribe'
 import Search from './Search'
 import DropDowns from './DropDowns'
 import './RecipesContainer.css'
-import GoToMyRecipesButton from '../mykitchen/GoToMyRecipesButton'
-import CreateRecipeButton from '../mykitchen/CreateRecipeButton'
 import banner from "./pexels-photo-cropped.jpg"
 
 

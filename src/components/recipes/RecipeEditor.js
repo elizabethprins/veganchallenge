@@ -119,14 +119,15 @@ class RecipeEditor extends PureComponent {
   }
 
   validate(recipe) {
-    const { title, picture, description, cookingSteps } = recipe
+    const { title, picture, description, cookingSteps, persons } = recipe
 
     let errors = {}
 
      if (!title || title === '') errors.title = 'Je recept moet een titel hebben'
      if (!picture || picture === '') errors.picture = 'Voeg een leuke foto toe'
-     if (!description || description === '') errors.title = 'Beschrijf hier het gerecht'
-     if (!cookingSteps || cookingSteps === '') errors.title = 'Geef hier de bereidingswijze op'
+     if (!description || description === '') errors.title = 'Beschrijf het gerecht in een paar zinnen'
+     if (!cookingSteps || cookingSteps === '') errors.title = 'Geef de bereidingswijze op'
+     if (!persons || persons === '') errors.persons = 'Geef aan voor hoeveel personen dit recept is'
 
 
     this.setState({
@@ -233,10 +234,12 @@ class RecipeEditor extends PureComponent {
           type="number"
           ref="persons"
           className="persons"
-          placeholder="Voor hoeveel personen:"
+          placeholder="Aantal personen:"
           defaultValue={this.state.persons}
           onChange={this.updatePersons.bind(this)}
           onKeyDown={this.updatePersons.bind(this)} />
+
+        { errors.persons && <p className="error">{ errors.persons }</p> }
 
         <p>Ingrediënten</p>
 
