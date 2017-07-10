@@ -83,8 +83,8 @@ class CookbookEditor extends PureComponent {
 
     if (this.validate(cookbook)) {
       this.props.createCookbook(cookbook)
+        this.props.handleAddCookbookClose()
     }
-    this.props.handleAddCookbookClose()
   }
 
 

@@ -173,12 +173,9 @@ class RecipeEditor extends PureComponent {
         console.log(i)
     })
 
-
-
-
     if (this.validate(recipe)) {
       this.props.createRecipe(recipe)
-        this.props.router.push('/')
+        this.props.handleAddRecipeClose()
     }
   }
 

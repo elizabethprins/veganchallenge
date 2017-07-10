@@ -13,6 +13,7 @@ import CreateRecipeButton from './CreateRecipeButton'
 import CreateCookbookButton from './CreateCookbookButton'
 import Dialog from 'material-ui/Dialog'
 import CookbookEditor from '../cookbooks/CookbookEditor'
+import RecipeEditor from '../recipes/RecipeEditor'
 import Plus from 'material-ui/svg-icons/content/add'
 import RaisedButton from 'material-ui/RaisedButton'
 import Title from '../Title'
@@ -23,9 +24,10 @@ export class MyKitchen extends PureComponent {
   constructor(props) {
     super()
 
-    this.state = { addCookbook: false }
+    this.state = { addCookbook: false, addRecipe: false }
 
     this.handleAddCookbookClose = this.handleAddCookbookClose.bind(this)
+    this.handleAddRecipeClose = this.handleAddRecipeClose.bind(this)
   }
 
   static propTypes = {
@@ -58,6 +60,14 @@ export class MyKitchen extends PureComponent {
     this.setState({ addCookbook: false })
   }
 
+  handleAddRecipeOpen() {
+    this.setState({ addRecipe: true })
+  }
+
+  handleAddRecipeClose() {
+    this.setState({ addRecipe: false })
+  }
+
 
 render() {
 
@@ -72,7 +82,7 @@ render() {
       <div className="recipes wrapper">
         <header className="header">
         <div className="title">
-          <Title content="Jouw Keuken" />
+          <Title content="Jouw Keuken" level = {2} />
           </div>
           <div className="search">
             <Search />
@@ -84,7 +94,18 @@ render() {
         </div>
 
         <div className="create-buttons">
-          <CreateRecipeButton />
+
+          <RaisedButton label="Nieuw recept" primary={true}
+          icon={<Plus />} onTouchTap={this.handleAddRecipeOpen.bind(this)} />
+            <Dialog
+              title="Maak een nieuw recept"
+              modal={false}
+              open={this.state.addRecipe}
+              onRequestClose={this.handleAddRecipeClose.bind(this)}
+            >
+              <RecipeEditor handleAddRecipeClose={this.handleAddRecipeClose}/>
+            </Dialog>
+
           <RaisedButton label="Nieuw kookboek" primary={true}
           icon={<Plus />} onTouchTap={this.handleAddCookbookOpen.bind(this)} />
             <Dialog
@@ -95,6 +116,7 @@ render() {
             >
               <CookbookEditor handleAddCookbookClose={this.handleAddCookbookClose}/>
             </Dialog>
+
         </div>
 
         <main>
