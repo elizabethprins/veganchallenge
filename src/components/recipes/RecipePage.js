@@ -31,7 +31,7 @@ export class RecipePage extends PureComponent {
 
 
   render() {
-    
+
     const {
       _id,
       title,
@@ -83,17 +83,20 @@ export class RecipePage extends PureComponent {
         </header>
 
         <main>
-          <div className="recipedetails">
-            <img className="image" src={picture} alt="foto" />
+          <article className="recipebanner">
+              <div className="cover" style={{ backgroundImage: `url(${picture})` }} />
+          </article>
 
+          <div className="details">
             <div className="description">
               <ReactMarkdown source={description} />
               <p><strong>Bereiding</strong></p>
               <ReactMarkdown source={cookingSteps} />
+            </div>
 
+            <div className="ingredients">
               <p>Aantal personen: <b id="persons">{persons}</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               <RaisedButton primary={true} icon={<Minus/>} onClick={removeOnePerson}/><RaisedButton primary={true} icon={<Plus/>} onClick={addOnePerson}/></p>
-
               <ul>
                 {ingredients.map((ingredient, i) => {
                   return (

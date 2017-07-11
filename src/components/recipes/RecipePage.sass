@@ -4,29 +4,42 @@ ul
   padding: 0
 
 .recipepage.wrapper
-  margin: 2em
 
   header
+    margin: 1em
     display: flex
     justify-content: space-between
 
   main
-    .recipedetails
+    .article.recipepage
+      background-color: #fff
+      width: 100%
+      box-shadow: 0 1px 6px rgba(0,0,0,.117647),0 1px 4px rgba(0,0,0,.117647)
+
+    .cover
+      height: 400px
+      background-size: cover
+      background-position: center
+
+
+
+      // @media (max-width: 600px)
+      //   .image
+      //   display: block
+      //
+
+    .details
+      margin: 2em
       display: flex
-      flex-flow: wrap
-
-      .image
-        height: 400px
-        padding: .8em
-        border-radius: 2em
-
-      @media (max-width: 600px)
-        .image
-        display: block
+      width: 100%
 
 
       .description
+        width: 50%
 
+      .ingredients
+        width: 50%
+        margin-left: 5em
 
     // @include breakpoint($breakpoint-large)
     //   display: flex
@@ -51,3 +64,18 @@ ul
     // @include breakpoint($breakpoint-medium)
     //   display: flex
     //   flex-flow: row wrap
+
+
+    article.cookbook
+      margin: .4em 1em
+      background-color: #fff
+      width: 200px
+      padding: .8em
+      border-radius: .5em
+      box-shadow: 0 1px 6px rgba(0,0,0,.117647),0 1px 4px rgba(0,0,0,.117647)
+
+      .cover
+        height: 200px
+        background-size: cover
+        background-position: center
+        border-radius: .5em
