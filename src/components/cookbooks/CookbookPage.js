@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import CookbookRecipeItem from './CookbookRecipeItem'
 import fetchRecipes from '../../actions/recipes/fetch'
+import fetchCookbooks from '../../actions/cookbooks/fetch'
 import subscribeToRecipesService from '../../actions/recipes/subscribe'
 import Title from '../Title'
 import './CookbookPage.css'
@@ -11,11 +12,14 @@ export class CookbookPage extends PureComponent {
   static propTypes = {
     recipes: PropTypes.array.isRequired,
     fetchRecipes: PropTypes.func.isRequired,
+    cookbooks: PropTypes.array.isRequired,
+    fetchCookbooks: PropTypes.func.isRequired,
   }
 
   componentWillMount() {
     this.props.fetchRecipes()
     this.props.subscribeToRecipesService()
+    this.props.fetchCookbooks()
   }
 
   renderCookbookRecipes(recipe, index) {
@@ -23,12 +27,10 @@ export class CookbookPage extends PureComponent {
   }
 
 render() {
-  const {recipes} = this.props
+  const { recipes, cookbooks } = this.props
   const thisCookbook = this.props.params.cookbookId
   const cookbookRecipes = recipes.filter((recipe) => recipe.cookbookId.includes(thisCookbook))
-
-  console.log("this props", this.props)
-  console.log("this propPARAMs",this.props.params)
+  const currentCookbook = cookbooks.filter((cookbook) => cookbook._id.includes(thisCookbook))
 
   return(
       <div className="cookbookrecipes wrapper">
@@ -49,8 +51,8 @@ render() {
   }
 }
 
-const mapStateToProps = ({ recipes }) => ({ recipes })
+const mapStateToProps = ({ recipes, cookbooks }) => ({ recipes, cookbooks })
 
 export default connect(mapStateToProps, {
-  fetchRecipes, subscribeToRecipesService
+  fetchRecipes, subscribeToRecipesService, fetchCookbooks
 })(CookbookPage)
