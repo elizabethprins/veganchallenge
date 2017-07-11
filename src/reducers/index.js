@@ -7,6 +7,7 @@ import searchQuery from './searchQuery'
 import currentRecipe from './currentRecipe'
 import cookbooks from './cookbooks'
 import currentCookbook from './currentCookbook'
+import subscriptions from './subscriptions'
 
 export default {
   loading,
@@ -17,4 +18,5 @@ export default {
   currentRecipe,
   cookbooks,
   currentCookbook,
+  subscriptions
 }
