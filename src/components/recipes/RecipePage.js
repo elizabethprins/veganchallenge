@@ -89,7 +89,7 @@ export class RecipePage extends PureComponent {
 
           <div className="details">
             <div className="description">
-              <ReactMarkdown source={description} />
+              <h2><ReactMarkdown source={description} /></h2>
               <p><strong>Bereiding</strong></p>
               <ReactMarkdown source={cookingSteps} />
             </div>
