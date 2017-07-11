@@ -2,7 +2,6 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import ReactMarkdown from 'react-markdown'
 import LikeButton from '../../components/LikeButton'
 import toggleLike from '../../actions/recipes/toggleLike'
 import '../recipes/RecipeItem.css'
@@ -27,7 +26,7 @@ export class CookbookRecipeItem extends PureComponent {
   }
 
   render() {
-    const { _id, title, picture, liked, likedBy, cookbookId } = this.props
+    const { _id, title, picture, liked, likedBy } = this.props
 
     return(
       <article className="recipe">

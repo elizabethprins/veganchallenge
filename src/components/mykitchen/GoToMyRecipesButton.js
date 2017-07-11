@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
 import RaisedButton from 'material-ui/RaisedButton'
-import RecipeIcon from 'material-ui/svg-icons/communication/import-contacts'
 import Recipe from 'material-ui/svg-icons/action/receipt'
 import './GoToMyRecipesButton.css'
 

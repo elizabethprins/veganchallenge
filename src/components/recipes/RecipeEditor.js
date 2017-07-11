@@ -20,7 +20,7 @@ class RecipeEditor extends PureComponent {
   constructor(props) {
     super()
 
-    const { title, picture, persons, ingredients, amount, measure, ingredient, description, cookingSteps, tip, authorId, input } = props
+    const { title, picture, persons, description, cookingSteps, tip, authorId } = props
 
     this.state = {
       title,
@@ -29,9 +29,6 @@ class RecipeEditor extends PureComponent {
       description,
       cookingSteps,
       ingredients: [],
-      amount: [],
-      measure,
-      ingredient,
       tip,
       authorId,
       values: [],
@@ -122,9 +119,8 @@ class RecipeEditor extends PureComponent {
 
     // this.updateAllIngredients()
 
-    const { amount, measure, ingredient } = this.state
+    
     const { ingredients } = this.state
-    console.log("hello", ingredients)
 
     const {
       title,
@@ -221,9 +217,9 @@ class RecipeEditor extends PureComponent {
 
         <h3>Ingrediënten</h3>
 
-        {input.map((i) => {
+        {input.map((i, index) => {
           return(
-            <div>
+            <div key={index}>
               <input
                 type="number"
                 ref={`amount${i.toString()}`}

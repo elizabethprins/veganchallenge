@@ -7,7 +7,6 @@ import LikeButton from '../../components/LikeButton'
 import FlatButton from 'material-ui/FlatButton'
 import toggleLike from '../../actions/recipes/toggleLike'
 import addToRecipe from '../../actions/cookbooks/add-recipe'
-// import cBook from 'material-ui/svg-icons/action/alarm'
 import cBook from '../../images/food.svg'
 import IconButton from 'material-ui/IconButton'
 import Dialog from 'material-ui/Dialog'
@@ -64,12 +63,8 @@ export class RecipeItem extends PureComponent {
 
   render() {
     const { _id, title, picture, liked, likedBy, cookbooks } = this.props
-    const { activeCheckboxes } =this.state
-    const {currentUser} = this.props
-    console.log("currentUser?", this.props.currentUser._id)
-
     const myCookbooks = cookbooks.filter((cookbook) => (cookbook.creatorId === this.props.currentUser._id))
-      console.log("myCookbooks", myCookbooks)
+
 
     const actions = [
      <FlatButton
@@ -106,8 +101,9 @@ export class RecipeItem extends PureComponent {
                 open={this.state.open}
                 onRequestClose={this.handleClose}
               >
-              {myCookbooks.map(function(cookbook) {
+              {myCookbooks.map(function(cookbook, index) {
                 return <Checkbox
+                  key={index}
                   iconStyle={{'fill': '#B30000'}}
                   checkedIcon={<ActionFavorite />}
                   uncheckedIcon={<ActionFavoriteBorder />}

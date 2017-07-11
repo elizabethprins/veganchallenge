@@ -67,7 +67,7 @@ export class MyKitchen extends PureComponent {
 
 
 render() {
-  console.log(this.props)
+
   const { recipes } = this.props
   const { cookbooks } = this.props
   const me = this.props.params.currentUserId
@@ -79,16 +79,15 @@ render() {
       <div className="recipes wrapper">
         <header className="header">
         <div className="title">
-          <Title content="Mijn Keuken" level={2} />
+          <Title content="Jouw Keuken" />
+          </div>
+          <div className="search">
+            <Search />
           </div>
         </header>
 
-        <main>
-        <div className="search">
-          <Search />
-        </div>
-
         <div className="create-buttons">
+
           <RaisedButton label="Nieuw recept" primary={true}
           icon={<Plus />} onTouchTap={this.handleAddRecipeOpen.bind(this)} />
             <Dialog
@@ -111,29 +110,26 @@ render() {
             >
               <CookbookEditor handleAddCookbookClose={this.handleAddCookbookClose}/>
             </Dialog>
+
         </div>
 
-          <div className="title">
-          <Title content="Mijn Recepten" level={2} />
-          </div>
+        <main>
           <div className="recipes">
+          <Title content="Jouw Recepten" />
             { myRecipes.map(this.renderMyRecipes.bind(this)) }
           </div>
 
           <hr />
 
-          <div className="title">
-          <Title content="Mijn Kookboeken" level={2} />
-          </div>
           <div className="recipes">
+          <Title content="Jouw Kookboeken" />
             { myCookbooks.map(this.renderMyCookbooks.bind(this)) }
           </div>
 
           <hr />
-          <div className="title">
-          <Title content="Favorieten" level={2} />
-          </div>
+
           <div className="recipes">
+          <Title content="Jouw Favorieten" />
             { myFavorites.map(this.renderMyRecipes.bind(this)) }
           </div>
 

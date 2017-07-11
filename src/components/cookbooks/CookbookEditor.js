@@ -1,7 +1,6 @@
 import React, { PureComponent } from 'react'
 import toMarkdown from 'to-markdown'
 import FlatButton from 'material-ui/FlatButton'
-import RaisedButton from 'material-ui/RaisedButton'
 import { connect } from 'react-redux'
 import { replace } from 'react-router-redux'
 import createCookbook from '../../actions/cookbooks/create'
@@ -50,7 +49,7 @@ class CookbookEditor extends PureComponent {
   }
 
   validate(cookbook) {
-    const { bookTitle, summary} = cookbook
+    const { bookTitle } = cookbook
 
     let errors = {}
 

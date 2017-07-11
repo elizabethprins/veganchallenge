@@ -7,9 +7,9 @@ import signOut from '../actions/user/sign-out'
 import AppBar from 'material-ui/AppBar'
 import IconButton from 'material-ui/IconButton'
 import FlatButton from 'material-ui/FlatButton'
-import RaisedButton from 'material-ui/RaisedButton'
+
 import Book from 'material-ui/svg-icons/communication/import-contacts'
-import Recipe from 'material-ui/svg-icons/action/receipt'
+
 import PaprikaFull from '../images/paprika_full.svg'
 import GoToMyRecipesButton from './mykitchen/GoToMyRecipesButton'
 
@@ -46,7 +46,6 @@ class Navigation extends PureComponent {
 
   myRecipes = () => {
     const { currentUser } = this.props
-    console.log(this)
     this.props.push(`/mijn-recepten/${currentUser._id}`)
   }
 
