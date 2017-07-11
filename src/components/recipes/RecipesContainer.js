@@ -11,7 +11,6 @@ import DropDowns from './DropDowns'
 import './RecipesContainer.css'
 import banner from "./pexels-photo-cropped.jpg"
 
-
 export class RecipesContainer extends PureComponent {
   static propTypes = {
     recipes: PropTypes.array.isRequired,

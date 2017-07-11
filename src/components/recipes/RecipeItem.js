@@ -64,7 +64,6 @@ export class RecipeItem extends PureComponent {
   render() {
     const { _id, title, picture, liked, likedBy, cookbooks, currentUser } = this.props
     const { activeCheckboxes } =this.state
-
     const myCookbooks = cookbooks.filter((cookbook) => (cookbook.creatorId === this.props.currentUser._id))
 
     const actions = [
@@ -102,8 +101,9 @@ export class RecipeItem extends PureComponent {
                 open={this.state.open}
                 onRequestClose={this.handleClose}
               >
-              {myCookbooks.map(function(cookbook) {
+              {myCookbooks.map(function(cookbook, index) {
                 return <Checkbox
+                  key={index}
                   iconStyle={{'fill': '#B30000'}}
                   checkedIcon={<ActionFavorite />}
                   uncheckedIcon={<ActionFavoriteBorder />}

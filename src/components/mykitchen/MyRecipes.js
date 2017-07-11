@@ -14,6 +14,7 @@ import RecipeEditor from '../recipes/RecipeEditor'
 import Plus from 'material-ui/svg-icons/content/add'
 import RaisedButton from 'material-ui/RaisedButton'
 import Title from '../Title'
+import banner from "../recipes/pexels-photo-cropped.jpg"
 import './MyRecipes.css'
 
 
@@ -77,17 +78,19 @@ render() {
   return(
       <div className="recipes wrapper">
         <header className="header">
-        <div className="title">
-          <Title content="Mijn Keuken" level={2} />
+          <div className="image">
+            <img src={ banner } className="mybanner" alt="Pen-Pineapple-Apple-Pen"/>
+          </div>
+          <div className="search">
+            <Search />
+            <div className="colordiv">
+              <Title content="Jouw Keuken" />
+            </div>
           </div>
         </header>
 
-        <main>
-        <div className="search">
-          <Search />
-        </div>
+        <div className="createbuttons">
 
-        <div className="create-buttons">
           <RaisedButton label="Nieuw recept" primary={true}
           icon={<Plus />} onTouchTap={this.handleAddRecipeOpen.bind(this)} />
             <Dialog
@@ -110,29 +113,32 @@ render() {
             >
               <CookbookEditor handleAddCookbookClose={this.handleAddCookbookClose}/>
             </Dialog>
+
         </div>
 
-          <div className="title">
-          <Title content="Mijn Recepten" level={2} />
-          </div>
+        <main>
           <div className="recipes">
+            <div className="subtitle">
+              <Title content="Jouw Recepten" />
+            </div>
             { myRecipes.map(this.renderMyRecipes.bind(this)) }
           </div>
 
           <hr />
 
-          <div className="title">
-          <Title content="Mijn Kookboeken" level={2} />
-          </div>
           <div className="recipes">
+            <div className="subtitle">
+              <Title content="Jouw Kookboeken" />
+            </div>
             { myCookbooks.map(this.renderMyCookbooks.bind(this)) }
           </div>
 
           <hr />
-          <div className="title">
-          <Title content="Favorieten" level={2} />
-          </div>
+
           <div className="recipes">
+            <div className="subtitle">
+              <Title content="Jouw Favorieten" />
+            </div>
             { myFavorites.map(this.renderMyRecipes.bind(this)) }
           </div>
 

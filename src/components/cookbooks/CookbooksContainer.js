@@ -1,13 +1,9 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import RaisedButton from 'material-ui/RaisedButton'
 import CookbookItem from './CookbookItem'
 import fetchCookbooks from '../../actions/cookbooks/fetch'
 import subscribeToCookbooksService from '../../actions/cookbooks/subscribe'
-import Dialog from 'material-ui/Dialog'
-import CookbookEditor from './CookbookEditor'
-import Plus from 'material-ui/svg-icons/content/add'
 import './CookbooksContainer.css'
 import Title from '../Title'
 

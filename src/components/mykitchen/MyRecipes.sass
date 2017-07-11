@@ -1,4 +1,6 @@
 @import "../../styles/breakpoints.sass"
+@import "../../styles/colors.sass"
+
 
 .recipes.wrapper
   margin: 0 auto
@@ -6,62 +8,50 @@
   .header
     display: flex
     justify-content: center
-    .banner
-      display: inline-block
+    .image
+      margin-bottom: 2em
+    .mybanner
+      display: flex
       align-items: center
       justify-content: center
       position: relative
       top: 0
       left: 0
       width: 100%
-      height: auto
+      height: 170%
       object-fit: cover
-
-    .Title
-      display: flex
-      flex-wrap: wrap
-      flex-direction: row
-      justify-content: center
-      overflow: hidden
-
-
-
-  .dropdowns
-    display: flex
-    justify-content: center
-
-  main
-    display: flex
-    flex-direction: column
-
-    .Title
-      display: flex
-      flex-wrap: wrap
-      flex-direction: row
-      justify-content: flex-start
-      overflow: hidden
 
     .search
       display: flex
       flex-wrap: wrap
       flex-direction: column
       align-items: center
-      padding-bottom: 1%
-      top: 7vh
+      padding-top: 10%
 
-    .create-buttons
+    .Title
       display: flex
-      align-items: center
+      flex-wrap: wrap
+      flex-direction: row
       justify-content: center
+      overflow: hidden
+
+  .createbuttons
+    display: flex
+    flex-flow: row wrap
+    padding-left: 12%
+    margin-top: 15%
 
 
-    // @include breakpoint($breakpoint-large)
-    //   display: flex
-    //   flex-flow: row wrap
-    //
-    // @include breakpoint($breakpoint-medium)
-    //   display: flex
-    //   flex-flow: row wrap
+  main
+    display: flex
+    flex-direction: column
+
+    .subtitle
+      background: $mintygreen
+      width: 100%
+      padding-left: 10%
+      margin-top: 1em
+      margin-bottom: 1em
 
   .recipes
     display: flex
@@ -70,11 +60,11 @@
     justify-content: center
     overflow: hidden
 
-    //
-    // @include breakpoint($breakpoint-large)
-    //   display: flex
-    //   flex-flow: row wrap
-    //
-    // @include breakpoint($breakpoint-medium)
-    //   display: flex
-    //   flex-flow: row wrap
+
+@include breakpoint($breakpoint-large)
+  display: flex
+  flex-flow: row wrap
+
+@include breakpoint($breakpoint-medium)
+  display: flex
+  flex-flow: row wrap

@@ -50,7 +50,7 @@ class CookbookEditor extends PureComponent {
   }
 
   validate(cookbook) {
-    const { bookTitle, summary} = cookbook
+    const { bookTitle } = cookbook
 
     let errors = {}
 
