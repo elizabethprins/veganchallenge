@@ -89,8 +89,10 @@ export class RecipePage extends PureComponent {
               <ReactMarkdown source={description} />
               <p><strong>Bereiding</strong></p>
               <ReactMarkdown source={cookingSteps} />
-              <p>Aantal personen: <b id="persons">{persons}</b></p>
-              <RaisedButton primary={true} icon={<Minus/>} onClick={removeOnePerson}/><RaisedButton primary={true} icon={<Plus/>} onClick={addOnePerson}/>
+
+              <p>Aantal personen: <b id="persons">{persons}</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <RaisedButton primary={true} icon={<Minus/>} onClick={removeOnePerson}/><RaisedButton primary={true} icon={<Plus/>} onClick={addOnePerson}/></p>
+
               <ul>
                 {ingredients.map((ingredient, i) => {
                   return (
@@ -101,9 +103,6 @@ export class RecipePage extends PureComponent {
             </div>
           </div>
         </main>
-
-        <footer>
-        </footer>
       </div>
     )
   }
