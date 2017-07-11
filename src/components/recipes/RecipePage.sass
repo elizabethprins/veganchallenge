@@ -10,11 +10,17 @@
   main
     .recipedetails
       display: flex
+      flex-flow: wrap
 
       .image
-        height: 450px
+        height: 400px
         padding: .8em
         border-radius: 2em
+
+      @media (max-width: 600px)
+        .image
+        display: block
+
 
       .description
 

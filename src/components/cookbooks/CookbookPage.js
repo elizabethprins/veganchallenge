@@ -24,17 +24,18 @@ export class CookbookPage extends PureComponent {
 
 render() {
   const {recipes} = this.props
-  const {cookbooks} = this.props
   const thisCookbook = this.props.params.cookbookId
   const cookbookRecipes = recipes.filter((recipe) => recipe.cookbookId.includes(thisCookbook))
 
-  console.log("this props",this.props)
+  console.log("this props", this.props)
+  console.log("this propPARAMs",this.props.params)
 
   return(
       <div className="cookbookrecipes wrapper">
         <header className="header">
           <div className="title">
             <Title content="Inhoud kookboek" level={2} />
+            <h3> {`${thisCookbook.bookTitle}`}</h3>
           </div>
         </header>
 
