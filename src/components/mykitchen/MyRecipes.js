@@ -82,10 +82,11 @@ render() {
           <div className="image">
             <img src={ banner } className="mybanner" alt="Pen-Pineapple-Apple-Pen"/>
           </div>
-
           <div className="search">
             <Search />
-            <Title content="Jouw Keuken" />
+            <div className="colordiv">
+              <Title content="Jouw Keuken" />
+            </div>
           </div>
         </header>
 

@@ -6,7 +6,8 @@
   .header
     display: flex
     justify-content: center
-
+    .image
+      margin-bottom: 2em
     .banner
       display: flex
       align-items: center
@@ -15,13 +16,8 @@
       top: 0
       left: 0
       width: 100%
-      height: auto
+      height: 110%
       object-fit: cover
-
-
-    @media (min-width: 500px)
-      .banner
-        display: block
 
     .Title
       display: flex
@@ -43,18 +39,12 @@
   .dropdowns
     display: flex
     justify-content: center
+    flex-flow: row wrap
+
 
   main
     display: flex
     flex-direction: column
-
-    // @include breakpoint($breakpoint-large)
-    //   display: flex
-    //   flex-flow: row wrap
-    //
-    // @include breakpoint($breakpoint-medium)
-    //   display: flex
-    //   flex-flow: row wrap
 
   .recipes
     display: flex
@@ -65,11 +55,11 @@
     overflow: hidden
 
 
-    //
-    // @include breakpoint($breakpoint-large)
-    //   display: flex
-    //   flex-flow: row wrap
-    //
-    // @include breakpoint($breakpoint-medium)
-    //   display: flex
-    //   flex-flow: row wrap
+
+@include breakpoint($breakpoint-large)
+  display: flex
+  flex-flow: row wrap
+
+@include breakpoint($breakpoint-medium)
+  display: flex
+  flex-flow: row wrap
