@@ -7,8 +7,7 @@ import LikeButton from '../../components/LikeButton'
 import FlatButton from 'material-ui/FlatButton'
 import toggleLike from '../../actions/recipes/toggleLike'
 import addToRecipe from '../../actions/cookbooks/add-recipe'
-// import cBook from 'material-ui/svg-icons/action/alarm'
-import cBook from '../../images/food.svg'
+import CookBook from 'material-ui/svg-icons/communication/import-contacts'
 import IconButton from 'material-ui/IconButton'
 import Dialog from 'material-ui/Dialog'
 import Checkbox from 'material-ui/Checkbox'
@@ -63,13 +62,10 @@ export class RecipeItem extends PureComponent {
   }
 
   render() {
-    const { _id, title, picture, liked, likedBy, cookbooks } = this.props
+    const { _id, title, picture, liked, likedBy, cookbooks, currentUser } = this.props
     const { activeCheckboxes } =this.state
-    const {currentUser} = this.props
-    console.log("currentUser?", this.props.currentUser._id)
 
     const myCookbooks = cookbooks.filter((cookbook) => (cookbook.creatorId === this.props.currentUser._id))
-      console.log("myCookbooks", myCookbooks)
 
     const actions = [
      <FlatButton
@@ -98,7 +94,7 @@ export class RecipeItem extends PureComponent {
                   liked={liked}
                   likes={likedBy.length}
                   onChange={this.toggleLike.bind(this)} />
-              <IconButton onTouchTap={this.handleOpen}><img className="cBook" alt="liked" src={ cBook } /></IconButton>
+              <IconButton className="button" onTouchTap={this.handleOpen}><CookBook /></IconButton>
               <Dialog
                 title="Dit recept aan een kookboek toevoegen"
                 actions={actions}
