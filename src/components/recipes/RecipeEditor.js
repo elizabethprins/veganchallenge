@@ -5,6 +5,7 @@ import toMarkdown from 'to-markdown'
 import SelectField from 'material-ui/SelectField'
 import MenuItem from 'material-ui/MenuItem'
 import FlatButton from 'material-ui/FlatButton'
+import RaisedButton from 'material-ui/RaisedButton'
 import Plus from 'material-ui/svg-icons/content/add'
 import { connect } from 'react-redux'
 import { replace } from 'react-router-redux'
@@ -214,7 +215,7 @@ class RecipeEditor extends PureComponent {
 
         { errors.persons && <p className="error">{ errors.persons }</p> }
 
-        <p>Ingrediënten</p>
+        <h3>Ingrediënten</h3>
 
         {input.map((i, index) => {
           return(
@@ -243,7 +244,7 @@ class RecipeEditor extends PureComponent {
           )
         })}
 
-        <div>
+        <div className="Plus">
           <FlatButton onClick={this.addInputField.bind(this)}>
             <Plus/>
           </FlatButton>
@@ -260,7 +261,7 @@ class RecipeEditor extends PureComponent {
             <MenuItem insetChildren={true} checked={values && values.indexOf('dessert') > -1} value={'dessert'} primaryText={'Nagerecht'} />
             <MenuItem insetChildren={true} checked={values && values.indexOf('drink') > -1} value={'drink'} primaryText={'Drankje'} />
           </SelectField>
-
+          <p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
           <SelectField multiple={true} floatingLabelText="Keuken" value={values} onChange={this.setType.bind(this)}>
             <MenuItem insetChildren={true} checked={values && values.indexOf('chinese') > -1} value={'chinese'} primaryText={'Chinees'} />
             <MenuItem insetChildren={true} checked={values && values.indexOf('french') > -1} value={'french'} primaryText={'Frans'} />
@@ -276,7 +277,7 @@ class RecipeEditor extends PureComponent {
             <MenuItem insetChildren={true} checked={values && values.indexOf('vietnamese') > -1} value={'vietnamese'} primaryText={'Vietnamees'} />
             <MenuItem insetChildren={true} checked={values && values.indexOf('westAfrican') > -1} value={'westAfrican'} primaryText={'West-Afrikaans'} />
           </SelectField>
-
+          <p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
           <SelectField multiple={true} floatingLabelText="Gelegenheid" value={values} onChange={this.setType.bind(this)}>
             <MenuItem insetChildren={true} checked={values && values.indexOf('birthday') > -1} value={'birthday'} primaryText={'Verjaardag'} />
             <MenuItem insetChildren={true} checked={values && values.indexOf('highTea') > -1} value={'highTea'} primaryText={'High Tea'} />
@@ -287,14 +288,15 @@ class RecipeEditor extends PureComponent {
             <MenuItem insetChildren={true} checked={values && values.indexOf('sinterklaas') > -1} value={'sinterklaas'} primaryText={'Sinterklaas'} />
             <MenuItem insetChildren={true} checked={values && values.indexOf('christmas') > -1} value={'christmas'} primaryText={'Christmas'} />
           </SelectField>
-
+          </div>
+          <div className="DropDowns">
           <SelectField multiple={true} floatingLabelText="Seizoen" value={values} onChange={this.setType.bind(this)}>
             <MenuItem insetChildren={true} checked={values && values.indexOf('spring') > -1} value={'spring'} primaryText={'Lente'} />
             <MenuItem insetChildren={true} checked={values && values.indexOf('summer') > -1} value={'summer'} primaryText={'Zomer'} />
             <MenuItem insetChildren={true} checked={values && values.indexOf('autumn') > -1} value={'autumn'} primaryText={'Herfst'} />
             <MenuItem insetChildren={true} checked={values && values.indexOf('winter') > -1} value={'winter'} primaryText={'Winter'} />
           </SelectField>
-
+          <p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
           <SelectField multiple={true} floatingLabelText="Allergieën" value={values} onChange={this.setType.bind(this)}>
             <MenuItem insetChildren={true} checked={values && values.indexOf('nuts') > -1} value={'nuts'} primaryText={'Notenvrij'} />
             <MenuItem insetChildren={true} checked={values && values.indexOf('gluten') > -1} value={'gluten'} primaryText={'Glutenvrij'} />
@@ -302,18 +304,17 @@ class RecipeEditor extends PureComponent {
             <MenuItem insetChildren={true} checked={values && values.indexOf('soy') > -1} value={'soy'} primaryText={'Sojavrij'} />
             <MenuItem insetChildren={true} checked={values && values.indexOf('raw') > -1} value={'raw'} primaryText={'Raw'} />
           </SelectField>
-
+          <p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
           <SelectField multiple={true} floatingLabelText="Bereidingstijd" value={values} onChange={this.setType.bind(this)}>
             <MenuItem insetChildren={true} checked={values && values.indexOf('lessThanFifteen') > -1} value={'lessThanFifteen'} primaryText={'< 15 min'} />
             <MenuItem insetChildren={true} checked={values && values.indexOf('fifteenToThirty') > -1} value={'fifteenToThirty'} primaryText={'15-30 min'} />
             <MenuItem insetChildren={true} checked={values && values.indexOf('thirtyToOneHour') > -1} value={'thirtyToOneHour'} primaryText={'30-60 min'} />
             <MenuItem insetChildren={true} checked={values && values.indexOf('moreThanOneHour') > -1} value={'moreThanOneHour'} primaryText={'> 1 uur'} />
           </SelectField>
-
         </div>
 
         <div className="actions">
-          <button className="primary" onClick={this.saveRecipe.bind(this)}>Opslaan</button>
+          <RaisedButton className="primary" primary={true} onClick={this.saveRecipe.bind(this)}>Opslaan</RaisedButton>
         </div>
       </div>
     )

@@ -20,7 +20,7 @@ const PLACEHOLDER = 'http://via.placeholder.com/500x180?text=No%20Image'
 export class RecipeItem extends PureComponent {
   state = {
       open: false,
-      activeCheckboxes: []
+      activeCheckboxes: JSON.parse(localStorage.getItem('activeCheckboxes')) || []
     }
 
   handleOpen = () => {
@@ -53,10 +53,9 @@ export class RecipeItem extends PureComponent {
       })
     } else {
       this.setState({
-        activeCheckboxes: [ ...this.state.activeCheckboxes, id ]
-      })
-    }
-console.log(this.state)
+        activeCheckboxes: this.state.activeCheckboxes.concat(id)}, () => { localStorage.setItem('activeCheckboxes', JSON.stringify(this.state.activeCheckboxes))})
+      }
+
     const cookbook = id
     const { _id } = this.props
     this.props.addToRecipe(_id, cookbook)
@@ -105,6 +104,7 @@ console.log(this.state)
               {myCookbooks.map(function(cookbook, index) {
                 return <Checkbox
                   key={index}
+                  iconStyle={{'fill': '#B30000'}}
                   checkedIcon={<ActionFavorite />}
                   uncheckedIcon={<ActionFavoriteBorder />}
                   label={cookbook.bookTitle}
