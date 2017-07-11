@@ -14,6 +14,7 @@ import RecipeEditor from '../recipes/RecipeEditor'
 import Plus from 'material-ui/svg-icons/content/add'
 import RaisedButton from 'material-ui/RaisedButton'
 import Title from '../Title'
+import banner from "../recipes/pexels-photo-cropped.jpg"
 import './MyRecipes.css'
 
 
@@ -78,15 +79,17 @@ render() {
   return(
       <div className="recipes wrapper">
         <header className="header">
-        <div className="title">
-          <Title content="Jouw Keuken" />
+          <div className="image">
+            <img src={ banner } className="mybanner" alt="Pen-Pineapple-Apple-Pen"/>
           </div>
+
           <div className="search">
             <Search />
+            <Title content="Jouw Keuken" />
           </div>
         </header>
 
-        <div className="create-buttons">
+        <div className="createbuttons">
 
           <RaisedButton label="Nieuw recept" primary={true}
           icon={<Plus />} onTouchTap={this.handleAddRecipeOpen.bind(this)} />
@@ -115,21 +118,27 @@ render() {
 
         <main>
           <div className="recipes">
-          <Title content="Jouw Recepten" />
+            <div className="subtitle">
+              <Title content="Jouw Recepten" />
+            </div>
             { myRecipes.map(this.renderMyRecipes.bind(this)) }
           </div>
 
           <hr />
 
           <div className="recipes">
-          <Title content="Jouw Kookboeken" />
+            <div className="subtitle">
+              <Title content="Jouw Kookboeken" />
+            </div>
             { myCookbooks.map(this.renderMyCookbooks.bind(this)) }
           </div>
 
           <hr />
 
           <div className="recipes">
-          <Title content="Jouw Favorieten" />
+            <div className="subtitle">
+              <Title content="Jouw Favorieten" />
+            </div>
             { myFavorites.map(this.renderMyRecipes.bind(this)) }
           </div>
 

@@ -1,4 +1,6 @@
 @import "../../styles/breakpoints.sass"
+@import "../../styles/colors.sass"
+
 
 .recipes.wrapper
   margin: 0 auto
@@ -6,15 +8,15 @@
   .header
     display: flex
     justify-content: center
-    .banner
-      display: inline-block
+    .mybanner
+      display: flex
       align-items: center
       justify-content: center
       position: relative
       top: 0
       left: 0
       width: 100%
-      height: auto
+      height: 160%
       object-fit: cover
 
     .Title
@@ -24,22 +26,22 @@
       justify-content: center
       overflow: hidden
 
-
-
-  .dropdowns
+  .createbuttons
     display: flex
-    justify-content: center
+    padding-left: 12%
+    margin-top: 15%
+
 
   main
     display: flex
     flex-direction: column
 
-    .Title
-      display: flex
-      flex-wrap: wrap
-      flex-direction: row
-      justify-content: flex-start
-      overflow: hidden
+    .subtitle
+      background: $mintygreen
+      width: 100%
+      padding-left: 10%
+      margin-top: 1em
+      margin-bottom: 1em
 
     .search
       display: flex
@@ -49,10 +51,8 @@
       padding-bottom: 1%
       top: 7vh
 
-    .create-buttons
-      display: flex
-      align-items: center
-      justify-content: center
+
+
 
 
     // @include breakpoint($breakpoint-large)
