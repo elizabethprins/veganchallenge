@@ -113,7 +113,7 @@ class CookbookEditor extends PureComponent {
           onKeyDown={this.updateSummary.bind(this)} />
 
         <div className="actions">
-          <RaisedButton className="primary" label="Opslaan" onTouchTap={this.handleSaveCookbook}/>
+          <RaisedButton className="primary" primary={true} label="Opslaan" onTouchTap={this.handleSaveCookbook}/>
         </div>
       </div>
     )

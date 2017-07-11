@@ -47,7 +47,7 @@ export class MyKitchen extends PureComponent {
   }
 
   renderMyCookbooks(cookbook, index) {
-    return <CookbookItem key={index} { ...cookbook } />
+    return <CookbookItem recipes={this.props.recipes} key={index} { ...cookbook } />
   }
 
   handleAddCookbookOpen() {
@@ -68,7 +68,6 @@ export class MyKitchen extends PureComponent {
 
 
 render() {
-
   const { recipes } = this.props
   const { cookbooks } = this.props
   const me = this.props.params.currentUserId

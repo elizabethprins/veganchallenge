@@ -12,15 +12,18 @@ class CookbookItem extends PureComponent {
   }
 
   render() {
-    const { _id, bookTitle, summary } = this.props;
+    const { _id, bookTitle, summary, recipes } = this.props
+    const recipeInCookbook = recipes.filter((recipe) => (recipe.cookbookId.includes(_id)))
+    const randomRecipe = recipeInCookbook[Math.floor(Math.random()*recipeInCookbook.length)]
 
     return(
       <main>
         <article className="cookbook">
           <Link to={`/kookboeken/${_id}`}>
           <div className="cover"
-          style={{ backgroundImage: `url(http://www.iconsdb.com/icons/preview/black/book-xxl.png)` }} />
+          style={{ backgroundImage: `url(${randomRecipe === undefined ? "http://members.ziggo.nl/jpmmetselaar/contents/media/kookboek.jpg" : randomRecipe.picture})` }} />
           </Link>
+          <br/>
           <h3> {bookTitle} </h3>
           <p> {summary} </p>
         </article>

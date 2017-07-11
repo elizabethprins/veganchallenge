@@ -37,7 +37,6 @@ render() {
         <header className="header">
           <div className="title">
             <Title content="Inhoud kookboek" level={2} />
-            <h3> {`${thisCookbook.bookTitle}`}</h3>
           </div>
         </header>
 
