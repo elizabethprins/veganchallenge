@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import CookbookItem from './CookbookItem'
 import fetchCookbooks from '../../actions/cookbooks/fetch'
+import fetchRecipes from '../../actions/recipes/fetch'
 import subscribeToCookbooksService from '../../actions/cookbooks/subscribe'
 import './CookbooksContainer.css'
 import Title from '../Title'
@@ -23,11 +24,12 @@ export class CookbooksContainer extends PureComponent {
 
   componentWillMount() {
     this.props.fetchCookbooks()
+    this.props.fetchRecipes()
     this.props.subscribeToCookbooksService()
   }
 
   renderCookbook(cookbook, index) {
-    return <CookbookItem key={index} { ...cookbook }  />
+    return <CookbookItem recipes={this.props.recipes} key={index} { ...cookbook }  />
   }
 
   handleAddCookbookOpen() {
@@ -59,8 +61,8 @@ export class CookbooksContainer extends PureComponent {
   }
 }
 
-const mapStateToProps = ({ cookbooks }) => ({ cookbooks })
+const mapStateToProps = ({ recipes, cookbooks }) => ({ recipes, cookbooks })
 
 export default connect(mapStateToProps, {
-  fetchCookbooks, subscribeToCookbooksService
+  fetchCookbooks, fetchRecipes, subscribeToCookbooksService
 })(CookbooksContainer)

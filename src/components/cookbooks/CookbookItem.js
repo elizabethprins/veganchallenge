@@ -13,6 +13,7 @@ class CookbookItem extends PureComponent {
 
   render() {
     const { _id, bookTitle, summary, recipes } = this.props
+    console.log(this.props)
     const recipeInCookbook = recipes.filter((recipe) => (recipe.cookbookId.includes(_id)))
     const randomRecipe = recipeInCookbook[Math.floor(Math.random()*recipeInCookbook.length)]
 
