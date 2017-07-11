@@ -52,9 +52,8 @@ export class RecipePage extends PureComponent {
         document.getElementById('persons').innerHTML = people
         items.map((item, i) => {
           if (item.amount !== undefined) {
-            var hello = people/persons * item.amount
-            console.log(hello)
-            document.getElementById(`ingredient-${i}`).innerHTML = hello
+            var minusAmount = Math.round((people/persons * item.amount) * 4) /4
+            document.getElementById(`ingredient-${i}`).innerHTML = minusAmount
           }
         })
       }
@@ -66,9 +65,8 @@ export class RecipePage extends PureComponent {
         document.getElementById('persons').innerHTML = people;
         items.map((item, i) => {
           if (item.amount !== undefined) {
-            var hello = people/persons * item.amount
-            console.log(hello)
-            document.getElementById(`ingredient-${i}`).innerHTML = hello
+            var plusAmount = Math.round((people/persons * item.amount) * 4) /4
+            document.getElementById(`ingredient-${i}`).innerHTML = plusAmount
           }
         })
       }
@@ -94,7 +92,9 @@ export class RecipePage extends PureComponent {
               <ul>
                 {ingredients.map((ingredient, i) => {
                   return (
-                    <p><b id={`ingredient-${i}`}>{ingredient.amount}</b> {ingredient.measure} {ingredient.ingredient}</p>
+                    <div key={i}>
+                      <p><b id={`ingredient-${i}`}>{ingredient.amount}</b> {ingredient.measure} {ingredient.ingredient}</p>
+                    </div>
                   )
                 })}
               </ul>
