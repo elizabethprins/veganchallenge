@@ -1,4 +1,3 @@
-// src/actions/recipes/subscribe.js
 import API from '../../api'
 
 export const SUBSCRIBED_TO_RECIPES_SERVICE = 'SUBSCRIBED_TO_RECIPES_SERVICE'

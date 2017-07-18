@@ -1,5 +1,3 @@
-// src/api/client.js
-
 import feathers from 'feathers/client'
 import socketio from 'feathers-socketio/client'
 import hooks from 'feathers-hooks'

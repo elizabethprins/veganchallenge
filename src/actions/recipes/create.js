@@ -1,5 +1,3 @@
-// src/actions/recipes/create.js
-
 import API from '../../api'
 import {
   APP_LOADING,
