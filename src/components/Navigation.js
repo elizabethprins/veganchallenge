@@ -50,7 +50,7 @@ class Navigation extends PureComponent {
   }
 
   render() {
-    const { signedIn, signOut, currentUser } = this.props
+    const { signedIn, signOut } = this.props
 
     var customTabs = (
             <customTabs label="Categorieen" />
