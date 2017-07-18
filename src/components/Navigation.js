@@ -1,4 +1,3 @@
-// src/components/Navigation.js
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
@@ -50,7 +49,7 @@ class Navigation extends PureComponent {
   }
 
   render() {
-    const { signedIn, signOut, currentUser } = this.props
+    const { signedIn, signOut } = this.props
 
     var customTabs = (
             <customTabs label="Categorieen" />

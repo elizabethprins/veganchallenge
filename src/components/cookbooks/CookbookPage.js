@@ -27,10 +27,9 @@ export class CookbookPage extends PureComponent {
   }
 
 render() {
-  const { recipes, cookbooks } = this.props
+  const { recipes } = this.props
   const thisCookbook = this.props.params.cookbookId
   const cookbookRecipes = recipes.filter((recipe) => recipe.cookbookId.includes(thisCookbook))
-  const currentCookbook = cookbooks.filter((cookbook) => cookbook._id.includes(thisCookbook))
 
   return(
       <div className="cookbookrecipes wrapper">

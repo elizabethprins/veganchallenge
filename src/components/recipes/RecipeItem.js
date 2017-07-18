@@ -1,4 +1,3 @@
-// src/recipes/RecipeItem.js
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
@@ -62,8 +61,7 @@ export class RecipeItem extends PureComponent {
   }
 
   render() {
-    const { _id, title, picture, liked, likedBy, cookbooks, currentUser } = this.props
-    const { activeCheckboxes } =this.state
+    const { _id, title, picture, liked, likedBy, cookbooks } = this.props
     const myCookbooks = cookbooks.filter((cookbook) => (cookbook.creatorId === this.props.currentUser._id))
 
     const actions = [

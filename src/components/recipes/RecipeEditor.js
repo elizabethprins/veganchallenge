@@ -1,4 +1,3 @@
-// src/recipes/RecipeEditor.js
 import React, { PureComponent } from 'react'
 import Editor from 'react-medium-editor'
 import toMarkdown from 'to-markdown'
@@ -119,7 +118,7 @@ class RecipeEditor extends PureComponent {
 
     // this.updateAllIngredients()
 
-    
+
     const { ingredients } = this.state
 
     const {

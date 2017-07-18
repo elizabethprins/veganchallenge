@@ -1,4 +1,3 @@
-// src/reducers/recipes.js
 import { FETCHED_RECIPES } from '../actions/recipes/fetch'
 import {
   RECIPE_CREATED,

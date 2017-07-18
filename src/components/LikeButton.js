@@ -1,4 +1,3 @@
-// src/components/LikeButton.js
 import React, { PureComponent } from 'react'
 import PaprikaEmpty from '../images/paprika.svg'
 import PaprikaFull from '../images/paprika_full.svg'

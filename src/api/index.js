@@ -1,5 +1,3 @@
-// src/api/index.js
-
 import client from './client'
 
 class API {

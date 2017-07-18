@@ -1,4 +1,3 @@
-// src/actions/user/sign-in.js
 import { history } from '../../store'
 import API from '../../api'
 import {
